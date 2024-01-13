@@ -16,7 +16,7 @@ export default function Testimonials() {
           <div className="info">
             <img src={avatarImage} alt="" />
             <div className="details">
-              <h4>Kishan Sheth</h4>
+              <h4>Test Testov</h4>
               <span>CEO - Shashaan Web Solutions</span>
             </div>
           </div>
@@ -29,7 +29,7 @@ export default function Testimonials() {
           <div className="info">
             <img src={avatarImage} alt="" />
             <div className="details">
-              <h4>Kishan Sheth</h4>
+              <h4>Test Testov</h4>
               <span>CEO - Shashaan Web Solutions</span>
             </div>
           </div>
@@ -42,7 +42,7 @@ export default function Testimonials() {
           <div className="info">
             <img src={avatarImage} alt="" />
             <div className="details">
-              <h4>Kishan Sheth</h4>
+              <h4>Test Testov</h4>
               <span>CEO - Shashaan Web Solutions</span>
             </div>
           </div>
@@ -70,7 +70,7 @@ const Section = styled.section`
       box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
       transition: 0.3s ease-in-out;
       &:hover {
-        transform: translateX(0.4rem) translateY(-1rem);
+        transform: translateX(0rem) translateY(-1rem);
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
       }
       .info {

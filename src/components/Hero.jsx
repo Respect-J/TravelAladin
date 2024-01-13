@@ -32,6 +32,9 @@ const Section = styled.section`
     img {
       width: 100%;
       filter: brightness(60%);
+      object-fit:cover;
+  border-radius: 8px;
+
     }
   }
   .content {
@@ -110,7 +113,7 @@ const Section = styled.section`
   @media screen and (min-width: 280px) and (max-width: 980px) {
     height: 25rem;
     .background {
-      background-color: palegreen;
+      
       img {
         height: 100%;
       }

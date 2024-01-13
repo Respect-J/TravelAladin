@@ -7,12 +7,14 @@ import ScrollToTop from "./components/ScrollToTop";
 import Services from "./components/Services";
 import Testimonials from "./components/Testimonials";
 import scrollreveal from "scrollreveal";
+import ContactForm from "./components/ContactForm";
+import VerticalLinearStepper from "./components/VerticalLinearStepper";
 export default function App() {
   useEffect(() => {
     const sr = scrollreveal({
       origin: "top",
       distance: "80px",
-      duration: 2000,
+      duration: 800,
       reset: true,
     });
     sr.reveal(
@@ -21,6 +23,7 @@ export default function App() {
         #hero,
         #services,
         #recommend,
+        #steps,
         #testimonials,
         footer
         `,
@@ -37,6 +40,8 @@ export default function App() {
       <Hero />
       <Services />
       <Recommend />
+      <ContactForm/>
+      <VerticalLinearStepper/>
       <Testimonials />
       <Footer />
     </div>

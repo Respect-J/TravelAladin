@@ -115,9 +115,11 @@ export default function Recommend() {
   );
 }
 const Section = styled.section`
+
   padding: 2rem 0;
   .title {
     text-align: center;
+    
   }
   .packages {
     display: flex;
@@ -134,6 +136,7 @@ const Section = styled.section`
       .active {
         border-bottom: 0.5rem solid #8338ec;
       }
+      
     }
   }
   .destinations {
@@ -155,6 +158,9 @@ const Section = styled.section`
       }
       img {
         width: 100%;
+        &:hover {
+          transform: scale(1.05,1.05) !important;
+        }
       }
       .info {
         display: flex;
