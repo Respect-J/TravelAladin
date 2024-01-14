@@ -24,40 +24,65 @@ export default function Navbar() {
 
         <ul>
           <li>
-            <a href="#home">Home</a>
+            <a href="#home">Главная</a>
           </li>
           <li>
-            <a href="#services">About</a>
+            <a href="#services">Города</a>
           </li>
           <li>
-            <a href="#recommend">Places</a>
+            <a href="#recommend">Программы туров</a>
           </li>
           <li>
-            <a href="#testimonials">Testimonials</a>
+            <a href="#contact">Обратная связь</a>
+          </li>
+          <li>
+            <a href="#">Фото отчёты</a>
+          </li>
+          <li>
+            <a href="#testimonials">Отзывы</a>
+          </li>
+          <li>
+            <a href="#">О нас</a>
           </li>
         </ul>
-        <button>Connect</button>
+        <span></span>
+        <span></span>
       </Nav>
       <ResponsiveNav state={navbarState}>
         <ul>
           <li>
             <a href="#home" onClick={() => setNavbarState(false)}>
-              Home
+            Главная
             </a>
           </li>
           <li>
             <a href="#services" onClick={() => setNavbarState(false)}>
-              About
+            Города
             </a>
           </li>
           <li>
             <a href="#recommend" onClick={() => setNavbarState(false)}>
-              Places
+            Программы туров
             </a>
           </li>
           <li>
             <a href="#testimonials" onClick={() => setNavbarState(false)}>
-              Testimonials
+            Отзывы
+            </a>
+          </li>
+          <li>
+            <a href="#contact" onClick={() => setNavbarState(false)}>
+            Обратная связь
+            </a>
+          </li>
+          <li>
+            <a href="#" onClick={() => setNavbarState(false)}>
+              Фото отчёты
+            </a>
+          </li>
+          <li>
+            <a href="#" onClick={() => setNavbarState(false)}>
+             О нас
             </a>
           </li>
         </ul>
@@ -77,8 +102,8 @@ const Nav = styled.nav`
       justify-content: center;
       align-items: center;
       gap: 0.4rem;
-      font-size: 1.2rem;
-      font-weight: 900;
+      font-size: 1.1rem;
+      font-weight: 800;
       text-transform: uppercase;
     }
     .toggle {
@@ -87,23 +112,34 @@ const Nav = styled.nav`
   }
   ul {
     display: flex;
-    gap: 1rem;
+    gap: 1.2rem;
     list-style-type: none;
     li {
       a {
         text-decoration: none;
-        color: #0077b6;
-        font-size: 1.2rem;
+        color: #000;
+        font-size: 0.9rem;
+        font-weight: 400;
+        text-transform: uppercase;
         transition: 0.1s ease-in-out;
         &:hover {
           color: #023e8a;
+          font-size: 0.95rem;
+
+
         }
       }
       &:first-of-type {
         a {
-          color: #023e8a;
-          font-weight: 900;
+          color: #000;
+          font-weight: 400;
+          &:hover {
+            color: #023e8a;
+          font-size: 0.95rem;
+  
+          }
         }
+        
       }
     }
   }
@@ -147,7 +183,7 @@ const ResponsiveNav = styled.div`
   z-index: 1;
   top: ${({ state }) => (state ? "50px" : "-400px")};
   background-color: white;
-  height: 30vh;
+  height: 45vh;
   width: 100%;
   align-items: center;
   transition: 0.3s ease-in-out;

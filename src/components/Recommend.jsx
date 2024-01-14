@@ -52,6 +52,7 @@ export default function Recommend() {
         <img src={props.image} alt={props.copy} className="cardimg"/>
         <p>{props.copy}</p>
         <p>{props.subTitle}</p>
+        <button className="cardbut">Подробнее</button>
       </li>
     );
   };
@@ -116,6 +117,8 @@ export default function Recommend() {
 }
 const Section = styled.section`
 
+
+
   padding: 2rem 0;
   .title {
     text-align: center;
@@ -138,6 +141,7 @@ const Section = styled.section`
       }
       
     }
+    
   }
   .destinations {
     display: grid;

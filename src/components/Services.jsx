@@ -46,6 +46,7 @@ export default function Services() {
             </div>
             <h3>{service.title}</h3>
             <p>{service.subTitle}</p>
+            
           </div>
         );
       })}
@@ -63,6 +64,8 @@ const Section = styled.section`
     flex-direction: column;
     gap: 1rem;
     padding: 2rem;
+  border-radius: 15px;
+
     background-color: aliceblue;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     transition: 0.3s ease-in-out;
@@ -71,6 +74,7 @@ const Section = styled.section`
       box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
       
     }
+    
     .icon {
       img {
         width: 100%;

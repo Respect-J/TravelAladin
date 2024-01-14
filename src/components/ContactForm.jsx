@@ -112,7 +112,7 @@ const ContactForm = () => {
   };
 
   return (
-    <FormContainer>
+    <FormContainer id='contact'>
       <StyledForm onSubmit={handleSubmit}>
         <Input
           type="text"

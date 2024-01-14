@@ -9,6 +9,7 @@ import Testimonials from "./components/Testimonials";
 import scrollreveal from "scrollreveal";
 import ContactForm from "./components/ContactForm";
 import VerticalLinearStepper from "./components/VerticalLinearStepper";
+import Soon from "./components/Soon";
 export default function App() {
   useEffect(() => {
     const sr = scrollreveal({
@@ -25,6 +26,7 @@ export default function App() {
         #recommend,
         #steps,
         #testimonials,
+        
         footer
         `,
       {
@@ -43,7 +45,9 @@ export default function App() {
       <ContactForm/>
       <VerticalLinearStepper/>
       <Testimonials />
+      {/* <Soon/> */}
       <Footer />
+      
     </div>
   );
 }
