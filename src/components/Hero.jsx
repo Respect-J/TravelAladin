@@ -1,11 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import homeImage from "../assets/hero.png";
+import hero from '../assets/Frame4.png'
 export default function Hero() {
   return (
     <Section id="hero">
       <div className="background">
-        <img src={homeImage} alt="" />
+        <img src={hero} alt="" />
       </div>
       <div className="content">
         <div className="title">
@@ -31,7 +32,8 @@ const Section = styled.section`
     height: 100%;
     img {
       width: 100%;
-      filter: brightness(60%);
+  
+
       object-fit:cover;
   border-radius: 8px;
 

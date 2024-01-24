@@ -6,26 +6,27 @@ import Destination3 from "../assets/Destination3.png";
 import Destination4 from "../assets/Destination4.png";
 import Destination5 from "../assets/Destination5.png";
 import Destination6 from "../assets/Destination6.png";
+import ProductPage from "./ProductPage";
 
 export default function Recommend() {
   const data = [
     {
       image: Destination1,
-      title: "Классический Тур По Узбекистану",
+      title: "Винные тур в Узбекистан на 8 дней 7 ночей.",
       subTitle: "Singapore, officially the Republic of Singapore, is a",
       cost: "38,800",
       duration: "Approx 2-night trip",
     },
     {
       image: Destination2,
-      title: "Винный Тур По Узбекистану",
+      title: "Авторские туры в Узбекистан",
       subTitle: "Thailand is a Southeast Asia country. It's known for",
       cost: "54,200",
       duration: "Approx 2-night trip",
     },
     {
       image: Destination4,
-      title: "Узбекистан",
+      title: "Бизнес тур в Узбекистан ",
       subTitle: "Paris, France's capital, is a major European city and a",
       cost: "45,500",
       duration: "Approx 2-night trip",
@@ -52,7 +53,7 @@ export default function Recommend() {
         <img src={props.image} alt={props.copy} className="cardimg"/>
         <p>{props.copy}</p>
         <p>{props.subTitle}</p>
-        <button className="cardbut">Подробнее</button>
+        <a  href='/product/'><button className="cardbut">Подробнее</button></a>
       </li>
     );
   };
@@ -190,6 +191,7 @@ const Section = styled.section`
     }
   }
   @media screen and (min-width: 280px) and (max-width: 768px) {
+
     .packages {
       ul {
         li {

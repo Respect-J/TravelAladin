@@ -10,11 +10,15 @@ import scrollreveal from "scrollreveal";
 import ContactForm from "./components/ContactForm";
 import VerticalLinearStepper from "./components/VerticalLinearStepper";
 import Soon from "./components/Soon";
+import Home from "./components/Home";
+import { Route, Routes } from "react-router-dom";
+import ProductPage from "./components/ProductPage";
+import About from './components/About'
 export default function App() {
   useEffect(() => {
     const sr = scrollreveal({
       origin: "top",
-      distance: "80px",
+      distance: "10px",
       duration: 800,
       reset: true,
     });
@@ -26,8 +30,7 @@ export default function App() {
         #recommend,
         #steps,
         #testimonials,
-        
-        footer
+        footer,
         `,
       {
         opacity: 0,
@@ -36,18 +39,13 @@ export default function App() {
     );
   }, []);
   return (
-    <div>
-      <ScrollToTop />
-      <Navbar />
-      <Hero />
-      <Services />
-      <Recommend />
-      <ContactForm/>
-      <VerticalLinearStepper/>
-      <Testimonials />
-      {/* <Soon/> */}
-      <Footer />
-      
-    </div>
+    <>
+      <Routes>
+        <Route path='/' element={<Home/>}/>
+        <Route path='/soon' element={<Soon/>}/>
+        <Route path='/product' element={<ProductPage/>}/>
+        <Route path='/about' element={<About/>}/>
+      </Routes>
+    </>
   );
 }

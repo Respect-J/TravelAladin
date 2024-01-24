@@ -11,21 +11,15 @@ import Typography from "@mui/material/Typography";
 const steps = [
   {
     label: "Трансфер в аэропорт и обратно",
-    description: `For each ad campaign that you create, you can control how much
-    you're willing to spend on clicks and conversions, which networks
-    and geographical locations you want your ads to show on, and more.`,
+    
   },
   {
     label: "Проживание в гостинице",
-    description: `For each ad campaign that you create, you can control how much
-    you're willing to spend on clicks and conversions, which networks
-    and geographical locations you want your ads to show on, and more.`,
+   
   },
   {
     label: "Обеспечение транспортом в рамках тура",
-    description: `For each ad campaign that you create, you can control how much
-    you're willing to spend on clicks and conversions, which networks
-    and geographical locations you want your ads to show on, and more.`,
+    
   },
   {
     label: "Опытный сопровождающий гид",
@@ -117,37 +111,7 @@ export default function VerticalLinearStepper() {
                 </StepLabel>
                 <StepContent>
                   <Typography>{step.description}</Typography>
-                  <Box sx={{ mb: 2 }}>
-                    <div>
-                      <Button
-                        variant="contained"
-                        onClick={handleNext}
-                        sx={{ mt: 1, mr: 1 }}
-                      >
-                        {index === steps.length - 1 ? "Закончить" : "Продолжить"}
-                      </Button>
-                      <Button
-                        disabled={index === 0}
-                        onClick={handleBack}
-                        sx={{ mt: 1, mr: 1 }}
-                      >
-                        Назад
-                      </Button>
-                      <Button
-                        disabled={index === 0}
-                        onClick={handleReset}
-                        sx={{ mt: 1, mr: 1 }}
-                      >
-                        В начало
-                      </Button>
-                      <Button
-                        onClick={handleClose}
-                        sx={{ mt: 1, mr: 1 }}
-                      >
-                        Закрыть
-                      </Button>
-                    </div>
-                  </Box>
+                  
                 </StepContent>
               </Step>
             ))}

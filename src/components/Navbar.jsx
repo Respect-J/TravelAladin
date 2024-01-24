@@ -9,9 +9,9 @@ export default function Navbar() {
     <>
       <Nav>
         <div className="brand">
-          <div className="container">
+          <div className="container2">
             <img src={logo} alt="" />
-            Carpet Travel Aladin
+            East Caravan
           </div>
           <div className="toggle">
             {navbarState ? (
@@ -24,7 +24,7 @@ export default function Navbar() {
 
         <ul>
           <li>
-            <a href="#home">Главная</a>
+            <a href="/">Главная</a>
           </li>
           <li>
             <a href="#services">Города</a>
@@ -36,13 +36,10 @@ export default function Navbar() {
             <a href="#contact">Обратная связь</a>
           </li>
           <li>
-            <a href="#">Фото отчёты</a>
-          </li>
-          <li>
             <a href="#testimonials">Отзывы</a>
           </li>
           <li>
-            <a href="#">О нас</a>
+            <a href="/about">О нас</a>
           </li>
         </ul>
         <span></span>
@@ -76,12 +73,7 @@ export default function Navbar() {
             </a>
           </li>
           <li>
-            <a href="#" onClick={() => setNavbarState(false)}>
-              Фото отчёты
-            </a>
-          </li>
-          <li>
-            <a href="#" onClick={() => setNavbarState(false)}>
+            <a href="/about" onClick={() => setNavbarState(false)}>
              О нас
             </a>
           </li>
@@ -96,7 +88,8 @@ const Nav = styled.nav`
   justify-content: space-between;
   align-items: center;
   .brand {
-    .container {
+    
+    .container2 {
       cursor: pointer;
       display: flex;
       justify-content: center;
@@ -160,6 +153,7 @@ const Nav = styled.nav`
   }
   @media screen and (min-width: 280px) and (max-width: 1080px) {
     .brand {
+      
       display: flex;
       justify-content: space-between;
       align-items: center;

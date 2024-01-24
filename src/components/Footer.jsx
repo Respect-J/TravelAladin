@@ -1,51 +1,66 @@
 import React from "react";
 import styled from "styled-components";
-import { BsLinkedin, BsFacebook, BsTelegram, BsMailbox, BsMailbox2 } from "react-icons/bs";
+import {
+  BsLinkedin,
+  BsFacebook,
+  BsTelegram,
+  BsMailbox,
+  BsMailbox2,
+} from "react-icons/bs";
 import { SiMaildotru } from "react-icons/si";
 import { IoLogoWhatsapp } from "react-icons/io";
 import { AiFillInstagram } from "react-icons/ai";
 export default function Footer() {
   return (
     <FooterContainer>
-      <span>Copyright &copy; 2024 Carpet Travel Aladin. All rights reserved</span>
+      <span>
+        Copyright &copy; 2024 Carpet Travel Aladin. All rights reserved
+      </span>
       <ul className="links">
-      <li>
-            <a href="#home">Главная</a>
-          </li>
-          <li>
-            <a href="#services">Города</a>
-          </li>
-          <li>
-            <a href="#recommend">Программы туров</a>
-          </li>
-          <li>
-            <a href="#contact">Обратная связь</a>
-          </li>
-          <li>
-            <a href="#testimonials">Фото отчёты</a>
-          </li>
-          <li>
-            <a href="#testimonials">Отзывы</a>
-          </li>
-          <li>
-            <a href="#testimonials">О нас</a>
-          </li>
+        <li>
+          <a href="/">Главная</a>
+        </li>
+        <li>
+          <a href="#services">Города</a>
+        </li>
+        <li>
+          <a href="#recommend">Программы туров</a>
+        </li>
+        <li>
+          <a href="#contact">Обратная связь</a>
+        </li>
+        <li>
+          <a href="#testimonials">Отзывы</a>
+        </li>
+        <li>
+          <a href="/about">О нас</a>
+        </li>
       </ul>
       <ul className="social__links">
         <li>
-          <BsFacebook />
+          <a>
+            <BsFacebook />
+          </a>
         </li>
         <li>
-          <AiFillInstagram />
+          <a>
+            <AiFillInstagram />
+          </a>
         </li>
         <li>
-          <BsTelegram />
+          <a>
+            <BsTelegram />
+          </a>
         </li>
         <li>
-        <SiMaildotru />
+          <a>
+            <SiMaildotru />
+          </a>
         </li>
         <li>
-        <IoLogoWhatsapp />
+          <a>
+            <IoLogoWhatsapp />
+          </a>
         </li>
       </ul>
     </FooterContainer>
