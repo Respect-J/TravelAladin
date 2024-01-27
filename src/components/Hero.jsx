@@ -24,7 +24,7 @@ export default function Hero() {
 
 const Section = styled.section`
   position: relative;
-  margin-top: 1rem;
+  margin-top: 3.2rem;
   width: 100%;
   height: 100%;
 

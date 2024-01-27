@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import avatarImage from "../assets/avatarImage.jpeg";
+import avatarImage from "../assets/ava1.jpg";
+import avatarImage2 from "../assets/ava2.jpg";
+import avatarImage3 from "../assets/ava3.jpg";
 export default function Testimonials() {
   return (
     <Section id="testimonials">
@@ -10,40 +12,42 @@ export default function Testimonials() {
       <div className="testimonials">
         <div className="testimonial">
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate
-            asperiores eaque.
+            Тур в Самарканд - это по правде удивительное путешествие с богатой
+            историей, великолепной архитектурой и дружелюбным гидом. Организация
+            тура была безупречной. Спасибо вам за поездку!
           </p>
           <div className="info">
             <img src={avatarImage} alt="" />
             <div className="details">
-              <h4>Test Testov</h4>
-              <span>CEO - Shashaan Web Solutions</span>
+              <h4>Ян Дмитрий</h4>
             </div>
           </div>
         </div>
         <div className="testimonial">
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate
-            asperiores eaque.
+            В Узбекистане как будто своя атмосфера, история наяву! Мне очень
+            понравилось участвовать в этом туре, мы посетили очень много
+            достопримечательностей а так же насладились узбекской национальной
+            кухней, это просто что то с чем то, словами не передать!
           </p>
           <div className="info">
-            <img src={avatarImage} alt="" />
+            <img src={avatarImage2} alt="" />
             <div className="details">
-              <h4>Test Testov</h4>
-              <span>CEO - Shashaan Web Solutions</span>
+              <h4>Наталья Итальянцева</h4>
             </div>
           </div>
         </div>
         <div className="testimonial">
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate
-            asperiores eaque.
+            Я и моя семья посетила Узбекистан. Нам очень понравилось, а особенно
+            понравился исторический город Бухара своей древней архитектурой. У
+            нас был очень опытный гид. Спасибо организаторам!
           </p>
           <div className="info">
-            <img src={avatarImage} alt="" />
+            <img src={avatarImage3} alt="" />
             <div className="details">
-              <h4>Test Testov</h4>
-              <span>CEO - Shashaan Web Solutions</span>
+              <h4>Елена Сабо</h4>
+             
             </div>
           </div>
         </div>
@@ -80,6 +84,7 @@ const Section = styled.section`
         align-items: center;
         margin-top: 1rem;
         img {
+          fit-content:cover;
           border-radius: 3rem;
           height: 3rem;
         }

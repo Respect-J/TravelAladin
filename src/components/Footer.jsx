@@ -21,16 +21,16 @@ export default function Footer() {
           <a href="/">Главная</a>
         </li>
         <li>
-          <a href="#services">Города</a>
+          <a href="http://localhost:3000/#services">Города</a>
         </li>
         <li>
-          <a href="#recommend">Программы туров</a>
+          <a href="http://localhost:3000/#recommend">Программы туров</a>
         </li>
         <li>
-          <a href="#contact">Обратная связь</a>
+          <a href="http://localhost:3000/#contact">Обратная связь</a>
         </li>
         <li>
-          <a href="#testimonials">Отзывы</a>
+          <a href="http://localhost:3000/#testimonials">Отзывы</a>
         </li>
         <li>
           <a href="/about">О нас</a>
@@ -38,27 +38,27 @@ export default function Footer() {
       </ul>
       <ul className="social__links">
         <li>
-          <a>
+          <a href="https://www.facebook.com/theeastcaravan">
             <BsFacebook />
           </a>
         </li>
         <li>
-          <a>
+          <a href="https://t.me/eastcaravan">
             <AiFillInstagram />
           </a>
         </li>
         <li>
-          <a>
+          <a href="https://t.me/eastcaravan">
             <BsTelegram />
           </a>
         </li>
         <li>
-          <a>
+          <a href="mailto:eastcaravantravel@gmail.com">
             <SiMaildotru />
           </a>
         </li>
         <li>
-          <a>
+          <a href="https://wa.me/+998505080939">
             <IoLogoWhatsapp />
           </a>
         </li>

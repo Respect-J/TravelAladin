@@ -1,39 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import IMG from "../assets/Destination1.png";
-import IMG1 from "../assets/Destination2.png";
-import IMG2 from "../assets/Destination3.png";
-import IMG3 from "../assets/Destination4.png";
 
 export default function Services() {
   const [selectedService, setSelectedService] = useState(null);
+  const [data, setData] = useState([]);
 
-  const data = [
-    {
-      icon: IMG,
-      title: "Ташкент",
-      subTitle:
-        "Ташкент – один из крупнейших городов Центральной Азии, столица суверенной Республики Узбекистан. Город расположен в предгорьях Тянь-Шаньского хребта, в долинной пойме реки Чирчик. В хорошую погоду горы видны из города на северо-восточном горизонте.А",
-    },
-    {
-      icon: IMG1,
-      title: "Самарканд",
-      subTitle:
-        "Самарканд – один из древнейших городов Средней Азии, уютно расположившийся в цветущей долине реки Зеравшан. Он входит в тройку самых крупных и многонаселенных городов Узбекистана, уступая пальму первенства лишь столичному Ташкенту и Намангану. На протяжении веков Самарканд являлся ключевым пунктом Великого шелкового пути и служил перекрестком культур Востока и Запада.",
-    },
-    {
-      icon: IMG2,
-      title: "Бухара",
-      subTitle:
-        "Бухара - это один из древнейших городов Центральной Азии, расположенный в Узбекистане. Он является административным центром Бухарской области и сохранил уникальные памятники зодчества всех исторических эпох, начиная с IX века. Бухара была столицей Бухарского ханства, крупным городом государства Тимуридов, также была столицей разных правящих династий.",
-    },
-    {
-      icon: IMG3,
-      title: "Хива",
-      subTitle:
-        "Хиве около 2500 лет. Сегодня это самый колоритный город Узбекистана: здесь появляется ощущение, что вас впустили в реальность Аладдина или Шахерезады. За высокими стенами прячется настоящий глиняный лабиринт с потайными дверями, и только здесь есть необычный «короткий минарет» — Кальта-минар, ставший символом города. Большинство объектов старой Хивы внесены ЮНЕСКО в список объектов всемирного наследия человечества.",
-    },
-  ];
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("http://127.0.0.1:8000/api/countre/");
+        const jsonData = await response.json();
+        setData(jsonData);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []); // Empty dependency array ensures the effect runs only once on mount
 
   const handleServiceClick = (index) => {
     setSelectedService(selectedService === index ? null : index);
@@ -45,12 +29,12 @@ export default function Services() {
         return (
           <div className="service" key={index}>
             <div className="icon" onClick={() => handleServiceClick(index)}>
-              <img src={service.icon} alt="" />
+              <img src={service.img} alt="" />
             </div>
             <h3>{service.title}</h3>
-            <p className="hidetit">{service.subTitle}</p>
-            
-            {selectedService === index && <p>{service.subTitle}</p>}
+            <p className="hidetit">{service.description}</p>
+
+            {selectedService === index && <p>{service.description}</p>}
             {/* Render button only in mobile version */}
             <ButtonMobile onClick={() => handleServiceClick(index)}>
               Подробнее
@@ -93,14 +77,10 @@ const Section = styled.section`
   }
   @media screen and (min-width: 280px) and (max-width: 720px) {
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    
   }
   @media screen and (min-width: 720px) and (max-width: 1080px) {
     grid-template-columns: repeat(2, 1fr);
   }
-
-  
-
 `;
 
 const Button = styled.button`
@@ -126,6 +106,5 @@ const ButtonMobile = styled(Button)`
 
   @media screen and (min-width: 280px) and (max-width: 1080px) {
     display: inline-block; // Show button for screen width between 280px and 1080px
-    
   }
 `;

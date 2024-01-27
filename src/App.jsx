@@ -14,6 +14,8 @@ import Home from "./components/Home";
 import { Route, Routes } from "react-router-dom";
 import ProductPage from "./components/ProductPage";
 import About from './components/About'
+import ProductPage2 from "./components/ProductPage2";
+import ProductPage3 from "./components/ProductPage3";
 export default function App() {
   useEffect(() => {
     const sr = scrollreveal({
@@ -44,6 +46,8 @@ export default function App() {
         <Route path='/' element={<Home/>}/>
         <Route path='/soon' element={<Soon/>}/>
         <Route path='/product' element={<ProductPage/>}/>
+        <Route path='/product2' element={<ProductPage2/>}/>
+        <Route path='/product3' element={<ProductPage3/>}/>
         <Route path='/about' element={<About/>}/>
       </Routes>
     </>

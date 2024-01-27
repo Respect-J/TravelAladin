@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Destination1 from "../assets/Destination1.png";
 import Destination2 from "../assets/Destination2.png";
@@ -12,48 +13,64 @@ export default function Recommend() {
   const data = [
     {
       image: Destination1,
-      title: "Винные тур в Узбекистан на 8 дней 7 ночей.",
-      subTitle: "Singapore, officially the Republic of Singapore, is a",
+      title: "Классический Тур По Узбекистану",
+      subTitle:
+        "На 8 ДНЕЙ 7 НОЧЕЙ Тур По Городам Ташкент-Самарканд-Бухара",
       cost: "38,800",
       duration: "Approx 2-night trip",
+      link: "/product/",
     },
     {
       image: Destination2,
-      title: "Авторские туры в Узбекистан",
-      subTitle: "Thailand is a Southeast Asia country. It's known for",
+      title: "Винный Тур по Узбекистану",
+      subTitle:
+        " На 8 ДНЕЙ 7 НОЧЕЙ Тур По Городам Ташкент-Самарканд-Бухара",
       cost: "54,200",
       duration: "Approx 2-night trip",
+      link: "/product2/",
     },
     {
       image: Destination4,
-      title: "Бизнес тур в Узбекистан ",
-      subTitle: "Paris, France's capital, is a major European city and a",
+      title: "Индивидуальный Тур по Узбекистану",
+      subTitle: "Тур По Городам Узбекистана по желанию и выбору туриста",
       cost: "45,500",
       duration: "Approx 2-night trip",
+      link: "/product3/",
     },
     {
       image: Destination5,
-      title: "Самарканд",
-      subTitle: "Singapore, officially the Republic of Singapore, is a",
-      cost: "38,800",
+      title: "Бизнес Тур",
+      subTitle: "Тур По Городам Узбекистана по желанию и выбору туриста",
+      cost: "45,500",
       duration: "Approx 2-night trip",
+      link: "/",
     },
-
   ];
 
   const items = data.map((destination) => ({
     image: destination.image,
     copy: destination.title,
     subTitle: destination.subTitle,
+    link: destination.link,
   }));
 
   const Card = (props) => {
+    const navigate = useNavigate();
+
+    const handleDetailsClick = () => {
+      navigate(props.link);
+    };
+
     return (
       <li className="card">
-        <img src={props.image} alt={props.copy} className="cardimg"/>
+        <img src={props.image} alt={props.copy} className="cardimg" />
         <p>{props.copy}</p>
         <p>{props.subTitle}</p>
-        <a  href='/product/'><button className="cardbut">Подробнее</button></a>
+        <a href={handleDetailsClick} onClick={handleDetailsClick}>
+          <button className="cardbut" onClick={handleDetailsClick}>
+            Подробнее
+          </button>
+        </a>
       </li>
     );
   };
@@ -110,20 +127,22 @@ export default function Recommend() {
         className={`${moveClass} carousel`}
       >
         {carouselItems.map((t, index) => (
-          <Card key={t.copy + index} image={t.image} copy={t.copy} subTitle={t.subTitle}/>
+          <Card
+            key={t.copy + index}
+            image={t.image}
+            copy={t.copy}
+            subTitle={t.subTitle}
+            link={t.link}
+          />
         ))}
       </ul>
     </div>
   );
 }
 const Section = styled.section`
-
-
-
   padding: 2rem 0;
   .title {
     text-align: center;
-    
   }
   .packages {
     display: flex;
@@ -140,9 +159,7 @@ const Section = styled.section`
       .active {
         border-bottom: 0.5rem solid #8338ec;
       }
-      
     }
-    
   }
   .destinations {
     display: grid;
@@ -164,7 +181,7 @@ const Section = styled.section`
       img {
         width: 100%;
         &:hover {
-          transform: scale(1.05,1.05) !important;
+          transform: scale(1.05, 1.05) !important;
         }
       }
       .info {
@@ -191,7 +208,6 @@ const Section = styled.section`
     }
   }
   @media screen and (min-width: 280px) and (max-width: 768px) {
-
     .packages {
       ul {
         li {

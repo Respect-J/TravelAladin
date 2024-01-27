@@ -5,7 +5,7 @@ import Footer from "./Footer";
 import Accordion from "./Accordion";
 import axios from "axios";
 
-const ProductPage = () => {
+const ProductPage3 = () => {
   const [accordionData, setAccordionData] = useState([]);
   const [tourData, setTourData] = useState({});
   const [comesOutData, setComesOutData] = useState([]);
@@ -15,7 +15,7 @@ const ProductPage = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "http://127.0.0.1:8000/tours/api/tour/0/"
+          "http://127.0.0.1:8000/tours/api/tour/2/"
         );
         const data = response.data;
 
@@ -63,13 +63,13 @@ const ProductPage = () => {
 
           <div className="product-configuration">
             <div>
-              <h1>React Accordion Demo</h1>
+              <h1>Описание по дням</h1>
               <div className="accordion">
-                {accordionData.map(({ id, description }) => (
+                {accordionData.map((data, index) => (
                   <Accordion
-                    key={id}
-                    title={`${id - 1} День`}
-                    content={description}
+                    key={index}
+                    title={`${index + 1} День`}
+                    content={data.description}
                   />
                 ))}
               </div>
@@ -77,7 +77,7 @@ const ProductPage = () => {
           </div>
 
           <div className="product-price">
-            <span>900$</span>
+            <span>800$</span>
             <a href="https://forms.amocrm.ru/rvzmlvv" className="cart-btn">
               Оставить заявку
             </a>
@@ -89,4 +89,4 @@ const ProductPage = () => {
   );
 };
 
-export default ProductPage;
+export default ProductPage3;

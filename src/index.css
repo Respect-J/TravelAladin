@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif:opsz@12..24&display=swap');
+
+
 * {
   margin: 0;
   padding: 0;
@@ -19,12 +22,28 @@ body {
 	padding-bottom: 50px;
 }
 
+@media screen and (max-width: 900px) {
+	#recommend {
+		padding-left: 13px;
+   }
+}
+
+@media screen and (max-width: 900px) {
+	.gjlpDz {
+		margin-top: 1.2rem !important;
+   }
+}
+
 ::-webkit-scrollbar {
   width: 0.6rem;
   background-color: #14213d;
 }
 ::-webkit-scrollbar-thumb {
   background-color: #4539e6;
+}
+
+.container2 {
+  font-family: 'Hedvig Letters Serif', serif !important;
 }
 
 @media screen and (max-width: 900px) {
@@ -93,6 +112,16 @@ body {
 	 padding: var(--card-margin);
 	 z-index: 100;
 }
+
+@media screen and (max-width: 900px) {
+ 
+  .ui{
+    width: calc(115% - var(--card-margin) * 2);
+    margin-left: -25px;
+  }
+ 
+}
+
  .ui button {
 	 cursor: pointer;
 	 display: flex;
@@ -777,4 +806,71 @@ form.contFrm {
 
 .download-button:hover {
   background-color: #45a049;
+}
+
+.accordion {
+  max-width: 600px;
+  margin: 2rem auto;
+  transition: .2s;
+}
+
+.accordion-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  cursor: pointer;
+  background-color: #e3e4e4;
+  transition: .2s;
+}
+
+.accordion-title:hover {
+  background-color: #aeb3b3;
+  transition: .2s;
+}
+
+.accordion-title,
+.accordion-content {
+  padding: 1rem;
+  transition: .2s;
+}
+
+.accordion-content {
+  background-color: rgb(106, 108, 108);
+  transition: .2s;
+}
+
+
+
+/* For desktop view */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* ... (rest of your styles) */
+
+  /* Media query for mobile view */
+  @media screen and (min-width: 280px) and (max-width: 1080px) {
+    position: relative; /* or fixed, depending on your design */
+    /* ... (rest of your mobile styles) */
+  }
+}
+
+
+
+.carousel{
+  margin-left: 30px;
+}
+
+
+@media screen and (max-width:600px){
+  .carousel{
+    margin-left: -20px;
+  }
+ 
 }

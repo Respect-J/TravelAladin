@@ -11,7 +11,7 @@ export default function ContactBubble() {
 
   const openTelegram = () => {
     // Замените "your_username" на ваш никнейм в Телеграме или полный URL, если вы используете бота.
-    window.location.href = "https://t.me/lil_nurik";
+    window.location.href = "https://wa.me/+998505080939";
   };
 
   window.addEventListener("scroll", () => {

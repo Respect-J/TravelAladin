@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import logo from "../assets/logo.png";
+import logo from "../assets/1.svg";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { VscChromeClose } from "react-icons/vsc";
 export default function Navbar() {
   const [navbarState, setNavbarState] = useState(false);
   return (
     <>
-      <Nav>
+      <Nav className="nav">
         <div className="brand">
           <div className="container2">
             <img src={logo} alt="" />
-            East Caravan
+           The East Caravan
           </div>
           <div className="toggle">
             {navbarState ? (
@@ -27,16 +27,16 @@ export default function Navbar() {
             <a href="/">Главная</a>
           </li>
           <li>
-            <a href="#services">Города</a>
+            <a href="http://localhost:3000/#services">Города</a>
           </li>
           <li>
-            <a href="#recommend">Программы туров</a>
+            <a href="http://localhost:3000/#recommend">Программы туров</a>
           </li>
           <li>
-            <a href="#contact">Обратная связь</a>
+            <a href="http://localhost:3000/#contact">Обратная связь</a>
           </li>
           <li>
-            <a href="#testimonials">Отзывы</a>
+            <a href="http://localhost:3000/#testimonials">Отзывы</a>
           </li>
           <li>
             <a href="/about">О нас</a>
@@ -48,27 +48,27 @@ export default function Navbar() {
       <ResponsiveNav state={navbarState}>
         <ul>
           <li>
-            <a href="#home" onClick={() => setNavbarState(false)}>
+            <a href="/" onClick={() => setNavbarState(false)}>
             Главная
             </a>
           </li>
           <li>
-            <a href="#services" onClick={() => setNavbarState(false)}>
+            <a href="http://localhost:3000/#services" onClick={() => setNavbarState(false)}>
             Города
             </a>
           </li>
           <li>
-            <a href="#recommend" onClick={() => setNavbarState(false)}>
+            <a href="http://localhost:3000/#recommend" onClick={() => setNavbarState(false)}>
             Программы туров
             </a>
           </li>
           <li>
-            <a href="#testimonials" onClick={() => setNavbarState(false)}>
+            <a href="http://localhost:3000/#testimonials" onClick={() => setNavbarState(false)}>
             Отзывы
             </a>
           </li>
           <li>
-            <a href="#contact" onClick={() => setNavbarState(false)}>
+            <a href="http://localhost:3000/#contact" onClick={() => setNavbarState(false)}>
             Обратная связь
             </a>
           </li>
@@ -98,6 +98,9 @@ const Nav = styled.nav`
       font-size: 1.1rem;
       font-weight: 800;
       text-transform: uppercase;
+    }
+    img{
+      width:80px;
     }
     .toggle {
       display: none;
@@ -170,6 +173,8 @@ const Nav = styled.nav`
     }
   }
 `;
+
+
 
 const ResponsiveNav = styled.div`
   display: flex;
