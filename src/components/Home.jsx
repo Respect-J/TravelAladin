@@ -9,6 +9,8 @@ import Testimonials from "./Testimonials";
 import ContactForm from "./ContactForm";
 import VerticalLinearStepper from "./VerticalLinearStepper";
 import ContactBubble from "./ContactBubble";
+import TourDate from "./TourDate";
+import Gallery from "./Gallery";
 
 const Home = () => {
   return (
@@ -21,7 +23,9 @@ const Home = () => {
       <Recommend />
       <ContactForm />
       <VerticalLinearStepper />
+      <TourDate/>
       <Testimonials />
+      <Gallery/>
       <Footer />
     </>
   );

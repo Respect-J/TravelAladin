@@ -3,16 +3,20 @@ import styled from "styled-components";
 import logo from "../assets/1.svg";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { VscChromeClose } from "react-icons/vsc";
+import { FaLanguage } from "react-icons/fa";
+import LanguageDropdown from "./LanguageDropdown";
 export default function Navbar() {
   const [navbarState, setNavbarState] = useState(false);
   return (
     <>
       <Nav className="nav">
         <div className="brand">
-          <div className="container2">
-            <img src={logo} alt="" />
-           The East Caravan
-          </div>
+          <a href="/">
+            <div className="container2">
+              <img src={logo} alt="" />
+              The East Caravan
+            </div>
+          </a>
           <div className="toggle">
             {navbarState ? (
               <VscChromeClose onClick={() => setNavbarState(false)} />
@@ -42,40 +46,56 @@ export default function Navbar() {
             <a href="/about">О нас</a>
           </li>
         </ul>
-        <span></span>
-        <span></span>
+        <span className="lang">
+          <LanguageDropdown />
+        </span>
       </Nav>
       <ResponsiveNav state={navbarState}>
         <ul>
           <li>
             <a href="/" onClick={() => setNavbarState(false)}>
-            Главная
+              Главная
             </a>
           </li>
           <li>
-            <a href="http://localhost:3000/#services" onClick={() => setNavbarState(false)}>
-            Города
+            <a
+              href="http://localhost:3000/#services"
+              onClick={() => setNavbarState(false)}
+            >
+              Города
             </a>
           </li>
           <li>
-            <a href="http://localhost:3000/#recommend" onClick={() => setNavbarState(false)}>
-            Программы туров
+            <a
+              href="http://localhost:3000/#recommend"
+              onClick={() => setNavbarState(false)}
+            >
+              Программы туров
             </a>
           </li>
           <li>
-            <a href="http://localhost:3000/#testimonials" onClick={() => setNavbarState(false)}>
-            Отзывы
+            <a
+              href="http://localhost:3000/#testimonials"
+              onClick={() => setNavbarState(false)}
+            >
+              Отзывы
             </a>
           </li>
           <li>
-            <a href="http://localhost:3000/#contact" onClick={() => setNavbarState(false)}>
-            Обратная связь
+            <a
+              href="http://localhost:3000/#contact"
+              onClick={() => setNavbarState(false)}
+            >
+              Обратная связь
             </a>
           </li>
           <li>
             <a href="/about" onClick={() => setNavbarState(false)}>
-             О нас
+              О нас
             </a>
+          </li>
+          <li>
+            <LanguageDropdown />
           </li>
         </ul>
       </ResponsiveNav>
@@ -87,8 +107,9 @@ const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-top: 18px;
+  padding-bottom: 10px;
   .brand {
-    
     .container2 {
       cursor: pointer;
       display: flex;
@@ -97,10 +118,11 @@ const Nav = styled.nav`
       gap: 0.4rem;
       font-size: 1.1rem;
       font-weight: 800;
+      padding-left: 40px !important;
       text-transform: uppercase;
     }
-    img{
-      width:80px;
+    img {
+      width: 75px;
     }
     .toggle {
       display: none;
@@ -121,8 +143,6 @@ const Nav = styled.nav`
         &:hover {
           color: #023e8a;
           font-size: 0.95rem;
-
-
         }
       }
       &:first-of-type {
@@ -131,16 +151,14 @@ const Nav = styled.nav`
           font-weight: 400;
           &:hover {
             color: #023e8a;
-          font-size: 0.95rem;
-  
+            font-size: 0.95rem;
           }
         }
-        
       }
     }
   }
   button {
-    padding: 0.5rem 1rem;
+    
     cursor: pointer;
     border-radius: 1rem;
     border: none;
@@ -156,11 +174,12 @@ const Nav = styled.nav`
   }
   @media screen and (min-width: 280px) and (max-width: 1080px) {
     .brand {
-      
       display: flex;
       justify-content: space-between;
       align-items: center;
       width: 100%;
+      margin-right: 2rem;
+      
       .toggle {
         display: block;
       }
@@ -174,18 +193,17 @@ const Nav = styled.nav`
   }
 `;
 
-
-
 const ResponsiveNav = styled.div`
   display: flex;
   position: absolute;
-  z-index: 1;
+  z-index: 10000000;
   top: ${({ state }) => (state ? "50px" : "-400px")};
   background-color: white;
-  height: 45vh;
+  height: 60vh;
   width: 100%;
   align-items: center;
   transition: 0.3s ease-in-out;
+
   ul {
     list-style-type: none;
     width: 100%;

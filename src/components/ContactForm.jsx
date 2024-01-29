@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import emailjs from 'emailjs-com';
-import backgroundImg from '../assets/blog1.jpg';
+import React, { useState } from "react";
+import styled from "styled-components";
+import emailjs from "emailjs-com";
+import backgroundImg from "../assets/blog1.jpg";
 
 const FormContainer = styled.div`
   display: flex;
@@ -10,26 +10,22 @@ const FormContainer = styled.div`
   background-image: url(${backgroundImg});
   background-size: cover;
   background-position: center;
-padding: 20px;
-border-radius: 8px;
-
+  padding: 60px;
+  
 `;
 
 const StyledForm = styled.form`
-display: flex;
-max-width: 600px;
-min-width: 600px;
+  display: flex;
+  max-width: 600px;
+  min-width: 600px;
 
-flex-direction: column;
-padding: 20px;
-border-radius: 8px;
+  flex-direction: column;
+  padding: 20px;
+  border-radius: 8px;
 
-
-@media (max-width: 900px) {
-min-width: 300px;
-    
+  @media (max-width: 900px) {
+    min-width: 300px;
   }
-
 `;
 
 const Label = styled.label`
@@ -38,16 +34,15 @@ const Label = styled.label`
 
 const Input = styled.input`
   padding: 10px;
- 
+
   margin-bottom: 16px;
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 16px;
 
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-  "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-  sans-serif;
-
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
 `;
 
 const TextArea = styled.textarea`
@@ -80,14 +75,12 @@ const Button = styled.button`
   }
 `;
 
-
-
 const ContactForm = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    phoneNumber: '',
-    email: '',
-    message: '',
+    name: "",
+    phoneNumber: "",
+    email: "",
+    message: "",
   });
 
   const handleChange = (e) => {
@@ -97,61 +90,40 @@ const ContactForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    emailjs.sendForm('service_va27djo', 'template_hfajp25', e.target, '6i8wIIeeu78-xa4iR')
-      .then((result) => {
-        console.log(result.text);
-        setFormData({
-          name: '',
-          phoneNumber: '',
-          email: '',
-          message: '',
-        });
-      }, (error) => {
-        console.log(error.text);
-      });
+    emailjs
+      .sendForm(
+        "service_va27djo",
+        "template_hfajp25",
+        e.target,
+        "6i8wIIeeu78-xa4iR"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          setFormData({
+            name: "",
+            phoneNumber: "",
+            email: "",
+            message: "",
+          });
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
   };
 
   return (
-    <FormContainer id='contact'>
-      <StyledForm onSubmit={handleSubmit}>
-        <Input
-          type="text"
-          name="name"
-          placeholder='Name'
-          value={formData.name}
-          onChange={handleChange}
-          required
-        />
-
-        <Input
-          type="tel"
-          name="phoneNumber"
-          placeholder='Phone number'
-          value={formData.phoneNumber}
-          onChange={handleChange}
-          required
-        />
-
-        <Input
-          type="email"
-          name="email"
-          placeholder='Email'
-          value={formData.email}
-          onChange={handleChange}
-          required
-        />
-
-        <TextArea
-          name="message"
-          placeholder='Message'
-          value={formData.message}
-          onChange={handleChange}
-          required
-        />
-
-        <Button type="submit">Отправить</Button>
-      </StyledForm>
-    </FormContainer>
+    <>
+      <h2 className="titlestop" id="contact">
+        Обратная связь
+      </h2>
+      <FormContainer id="contact">
+        <a href="https://forms.amocrm.ru/rvzmlvv" className="cart-btn">
+          Оставить заявку
+        </a>
+      </FormContainer>
+    </>
   );
 };
 

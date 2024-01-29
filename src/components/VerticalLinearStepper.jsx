@@ -45,12 +45,14 @@ export default function VerticalLinearStepper() {
   };
 
   return (
+    <div className="linear">
     <Box
       sx={{
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
         pt: 6,
+        margin: "1rem 1rem",
       }}
       id="steps"
     >
@@ -59,7 +61,6 @@ export default function VerticalLinearStepper() {
           {steps.map((step, index) => (
             <Step key={index}>
               <StepLabel
-                onClick={handleNext}
                 optional={
                   index === steps.length - 1 ? (
                     <Typography variant="caption">Последняя стадия</Typography>
@@ -84,5 +85,6 @@ export default function VerticalLinearStepper() {
         )}
       </Box>
     </Box>
+    </div>
   );
 }

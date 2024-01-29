@@ -24,29 +24,35 @@ export default function Services() {
   };
 
   return (
-    <Section id="services">
-      {data.map((service, index) => {
-        return (
-          <div className="service" key={index}>
-            <div className="icon" onClick={() => handleServiceClick(index)}>
-              <img src={service.img} alt="" />
-            </div>
-            <h3>{service.title}</h3>
-            <p className="hidetit">{service.description}</p>
+    <>
+      <h2 className="titlestop" id="services">
+        Города
+      </h2>
+      <Section id="services">
+        {data.map((service, index) => {
+          return (
+            <div className="service" key={index}>
+              <div className="icon" onClick={() => handleServiceClick(index)}>
+                <img src={service.img} alt="" />
+              </div>
+              <h3>{service.title}</h3>
+              <p className="hidetit">{service.description}</p>
 
-            {selectedService === index && <p>{service.description}</p>}
-            {/* Render button only in mobile version */}
-            <ButtonMobile onClick={() => handleServiceClick(index)}>
-              Подробнее
-            </ButtonMobile>
-          </div>
-        );
-      })}
-    </Section>
+              {selectedService === index && <p>{service.description}</p>}
+              {/* Render button only in mobile version */}
+              <ButtonMobile onClick={() => handleServiceClick(index)}>
+                Подробнее
+              </ButtonMobile>
+            </div>
+          );
+        })}
+      </Section>
+    </>
   );
 }
 
 const Section = styled.section`
+  margin: 1rem 2rem;
   padding: 1rem 0;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -77,6 +83,7 @@ const Section = styled.section`
   }
   @media screen and (min-width: 280px) and (max-width: 720px) {
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    margin-top: -0px !important;
   }
   @media screen and (min-width: 720px) and (max-width: 1080px) {
     grid-template-columns: repeat(2, 1fr);

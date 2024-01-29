@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import homeImage from "../assets/hero.png";
-import hero from '../assets/Frame4.png'
+import hero from "../assets/Frame4.png";
 export default function Hero() {
   return (
     <Section id="hero">
@@ -10,12 +10,15 @@ export default function Hero() {
       </div>
       <div className="content">
         <div className="title">
-          <h1>TRAVEL TO EXPLORE</h1>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere
-            natus, enim ipsam magnam odit deserunt itaque? Minima earum velit
-            tenetur!
+          <h1>THE EAST CARAVAN</h1>
+          <p className="herotit">
+            Откройте для себя мир с нами и создайте свои незабываемые
+            приключения. Мы - ваш проводник в удивительные уголки планеты, где
+            каждый момент наполнен удивительными впечатлениями.
           </p>
+          <a href="#recommend" className="cart-btn">
+              ПОДОБРАТЬ ТУР
+            </a>
         </div>
       </div>
     </Section>
@@ -24,19 +27,17 @@ export default function Hero() {
 
 const Section = styled.section`
   position: relative;
-  margin-top: 3.2rem;
+  margin-top: 4.3rem;
   width: 100%;
   height: 100%;
 
   .background {
-    height: 100%;
+    height: 155%;
     img {
       width: 100%;
-  
 
-      object-fit:cover;
-  border-radius: 8px;
-
+      object-fit: cover;
+      
     }
   }
   .content {
@@ -61,6 +62,7 @@ const Section = styled.section`
         text-align: center;
         padding: 0 30vw;
         margin-top: 0.5rem;
+        margin-bottom: 1.5rem;
         font-size: 1.2rem;
       }
     }
@@ -115,7 +117,6 @@ const Section = styled.section`
   @media screen and (min-width: 280px) and (max-width: 980px) {
     height: 25rem;
     .background {
-      
       img {
         height: 100%;
       }

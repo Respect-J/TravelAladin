@@ -7,7 +7,7 @@ export default function Testimonials() {
   return (
     <Section id="testimonials">
       <div className="title">
-        <h2>Happy Customers</h2>
+        <h2>Отзывы</h2>
       </div>
       <div className="testimonials">
         <div className="testimonial">
@@ -57,7 +57,8 @@ export default function Testimonials() {
 }
 
 const Section = styled.section`
-  margin: 5rem 0;
+margin: 1rem 2rem;
+  
   .title {
     text-align: center;
     margin-bottom: 2rem;

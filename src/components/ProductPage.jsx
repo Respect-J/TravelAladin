@@ -4,12 +4,17 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 import Accordion from "./Accordion";
 import axios from "axios";
+import ScrollToTop from "./ScrollToTop";
+import ContactBubble from "./ContactBubble";
+import Testimonials2 from "./Testimonials2";
+import Gallery from "./Gallery";
 
 const ProductPage = () => {
   const [accordionData, setAccordionData] = useState([]);
   const [tourData, setTourData] = useState({});
   const [comesOutData, setComesOutData] = useState([]);
   const [expanded, setExpanded] = useState(false);
+  const [price, setPrice] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -22,6 +27,9 @@ const ProductPage = () => {
         setTourData(data.tour);
         setAccordionData(data.days);
         setComesOutData(data.comes_out);
+        
+        const parsedPrice = parseFloat(data.tour.price.replace("$", ""));
+        setPrice(isNaN(parsedPrice) ? null : parsedPrice);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -37,6 +45,8 @@ const ProductPage = () => {
   return (
     <>
       <Navbar />
+      <ScrollToTop/>
+      <ContactBubble/>
       <main className="container">
         <div className="left-column">
           <img
@@ -52,6 +62,7 @@ const ProductPage = () => {
               <li key={id}>{description}</li>
             ))}
           </ul>
+          <Gallery/>
         </div>
 
         <div className="right-column">
@@ -63,7 +74,7 @@ const ProductPage = () => {
 
           <div className="product-configuration">
             <div>
-              <h1>React Accordion Demo</h1>
+              <h2>Описание по дням</h2>
               <div className="accordion">
                 {accordionData.map(({ id, description }) => (
                   <Accordion
@@ -77,13 +88,17 @@ const ProductPage = () => {
           </div>
 
           <div className="product-price">
-            <span>900$</span>
-            <a href="https://forms.amocrm.ru/rvzmlvv" className="cart-btn">
+          <span className="">{price !== null ? `Цена на 1 человека: ${price}$` : "Loading..."}</span>
+          </div>
+          <div className="product-price">
+          <span className="">{price !== null ? `Цена на 2 человека: ${price}$` : "Loading..."}</span>
+          </div>
+          <a href="https://forms.amocrm.ru/rvzmlvv" className="cart-btn">
               Оставить заявку
             </a>
-          </div>
         </div>
       </main>
+        <Testimonials2/>
       <Footer />
     </>
   );

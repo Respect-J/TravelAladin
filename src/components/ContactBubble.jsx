@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import logo from "../assets/Telegram_logo.svg.png";
+import logo from "../assets/WhatsApp.svg.png";
 
 export default function ContactBubble() {
   const [scrollState, setScrollState] = useState(false);
@@ -32,7 +32,7 @@ const ContactButton = styled.div`
   bottom: 1rem;
   left: 2rem;
   img {
-    height: 1.5rem;
+    height: 2rem;
   }
   border-radius: 2rem;
   background-color: #1900ff39;

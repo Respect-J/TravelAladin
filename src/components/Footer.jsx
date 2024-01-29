@@ -14,7 +14,7 @@ export default function Footer() {
   return (
     <FooterContainer>
       <span>
-        Copyright &copy; 2024 Carpet Travel Aladin. All rights reserved
+        Carpet Travel Aladin. All rights reserved
       </span>
       <ul className="links">
         <li>
@@ -34,6 +34,12 @@ export default function Footer() {
         </li>
         <li>
           <a href="/about">О нас</a>
+        </li>
+        <li>
+          <a href="tel:+79771451253">+79771451253</a>
+        </li>
+        <li>
+          <a href="tel:+998505080939">+998505080939</a>
         </li>
       </ul>
       <ul className="social__links">
@@ -62,6 +68,7 @@ export default function Footer() {
             <IoLogoWhatsapp />
           </a>
         </li>
+        
       </ul>
     </FooterContainer>
   );
@@ -73,7 +80,7 @@ const FooterContainer = styled.footer`
   background-color: #d0d8ff;
   border-radius: 0.5rem;
   padding: 2.5rem;
-
+margin: 1rem 2rem;
   ul {
     display: flex;
     list-style-type: none;

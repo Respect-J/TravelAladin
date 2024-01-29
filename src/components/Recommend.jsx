@@ -62,6 +62,7 @@ export default function Recommend() {
     };
 
     return (
+      
       <li className="card">
         <img src={props.image} alt={props.copy} className="cardimg" />
         <p>{props.copy}</p>
@@ -113,6 +114,10 @@ export default function Recommend() {
   };
 
   return (
+<>
+
+    <h2 className="titlestop"  id="recommend">Программы туров</h2>
+
     <div className="carouselwrapper module-wrapper" id="recommend">
       <div className="ui">
         <button onClick={() => setMoveClass("next")} className="prev">
@@ -137,6 +142,8 @@ export default function Recommend() {
         ))}
       </ul>
     </div>
+    </>
+
   );
 }
 const Section = styled.section`
@@ -144,6 +151,7 @@ const Section = styled.section`
   .title {
     text-align: center;
   }
+ 
   .packages {
     display: flex;
     justify-content: center;
