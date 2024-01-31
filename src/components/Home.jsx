@@ -11,6 +11,7 @@ import VerticalLinearStepper from "./VerticalLinearStepper";
 import ContactBubble from "./ContactBubble";
 import TourDate from "./TourDate";
 import Gallery from "./Gallery";
+import IndividualTour from "./IndividualTour";
 
 const Home = () => {
   return (
@@ -20,6 +21,7 @@ const Home = () => {
       <Navbar />
       <Hero />
       <Services />
+      <IndividualTour/>
       <Recommend />
       <ContactForm />
       <VerticalLinearStepper />

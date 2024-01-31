@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import Accordion from "./Accordion";
+import AccordionAll from "./AccordionAll";
 import axios from "axios";
 import ScrollToTop from "./ScrollToTop";
 import ContactBubble from "./ContactBubble";
@@ -9,7 +10,7 @@ import Testimonials2 from "./Testimonials2";
 import Gallery from "./Gallery";
 import { useLanguage } from "./LanguageContext";
 
-const ProductPage = () => {
+const ProductPage4 = () => {
   const { translations, language } = useLanguage();
   const [accordionData, setAccordionData] = useState([]);
   const [tourData, setTourData] = useState({});
@@ -22,7 +23,7 @@ const ProductPage = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "https://theeastcaravan.com/back/tours/api/tour/2/"
+          "https://theeastcaravan.com/back/tours/api/tour/3/"
         );
         const data = response.data;
 
@@ -31,7 +32,7 @@ const ProductPage = () => {
         setComesOutData(data.comes_out);
 
         const parsedPrice = parseFloat(
-          data.tour.price_for_one.replace("$", "")
+          data.tour.price_for_one.replace("", "")
         );
         setPrice(isNaN(parsedPrice) ? null : parsedPrice);
       } catch (error) {
@@ -78,6 +79,7 @@ const ProductPage = () => {
                   <li key={id}>{description}</li>
                 ))}
               </ul>
+              <AccordionAll/>
               <Gallery />
             </div>
 
@@ -122,7 +124,7 @@ const ProductPage = () => {
                         language === "ru"
                           ? `Цена за одного`
                           : `Price for one person`
-                      }: ${tourData.price_for_one}$`
+                      }: ${language === "ru" ? `Стоимость тура зависит от выбранных городов и видов отдыха.` : `The cost of the tour depends on the selected cities and types of recreation.`}`
                     : translations && translations.loading}
                 </span>
               </div>
@@ -133,7 +135,7 @@ const ProductPage = () => {
                         language === "ru"
                           ? `Цена за двоих`
                           : `Price for two persons`
-                      }: ${tourData.price_for_two}$`
+                      }: ${language === "ru" ? `Стоимость тура зависит от выбранных городов и видов отдыха.` : `The cost of the tour depends on the selected cities and types of recreation.`}`
                     : translations && translations.loading}
                 </span>
               </div>
@@ -151,4 +153,4 @@ const ProductPage = () => {
   );
 };
 
-export default ProductPage;
+export default ProductPage4;

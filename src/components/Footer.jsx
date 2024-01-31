@@ -10,30 +10,34 @@ import {
 import { SiMaildotru } from "react-icons/si";
 import { IoLogoWhatsapp } from "react-icons/io";
 import { AiFillInstagram } from "react-icons/ai";
+import { useLanguage } from "./LanguageContext"; // Замените на путь к вашему контексту
+
 export default function Footer() {
+  const { language } = useLanguage();
+
   return (
     <FooterContainer>
       <span>
-        Carpet Travel Aladin. All rights reserved
+        {language === "ru" ? "Carpet Travel Aladin. Все права защищены" : "Carpet Travel Aladin. All rights reserved"}
       </span>
       <ul className="links">
         <li>
-          <a href="/">Главная</a>
+          <a href="/">{language === "ru" ? "Главная" : "Home"}</a>
         </li>
         <li>
-          <a href="http://localhost:3000/#services">Города</a>
+          <a href="https://theeastcaravan.com/#services">{language === "ru" ? "Города" : "Cities"}</a>
         </li>
         <li>
-          <a href="http://localhost:3000/#recommend">Программы туров</a>
+          <a href="https://theeastcaravan.com/#recommend">{language === "ru" ? "Программы туров" : "Tour Programs"}</a>
         </li>
         <li>
-          <a href="http://localhost:3000/#contact">Обратная связь</a>
+          <a href="https://theeastcaravan.com/#contact">{language === "ru" ? "Обратная связь" : "Contact Us"}</a>
         </li>
         <li>
-          <a href="http://localhost:3000/#testimonials">Отзывы</a>
+          <a href="https://theeastcaravan.com/#testimonials">{language === "ru" ? "Отзывы" : "Testimonials"}</a>
         </li>
         <li>
-          <a href="/about">О нас</a>
+          <a href="/about">{language === "ru" ? "О нас" : "About Us"}</a>
         </li>
         <li>
           <a href="tel:+79771451253">+79771451253</a>
@@ -68,12 +72,10 @@ export default function Footer() {
             <IoLogoWhatsapp />
           </a>
         </li>
-        
       </ul>
     </FooterContainer>
   );
 }
-
 const FooterContainer = styled.footer`
   display: flex;
   justify-content: space-evenly;

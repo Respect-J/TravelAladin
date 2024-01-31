@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import emailjs from "emailjs-com";
 import backgroundImg from "../assets/blog1.jpg";
+import { useLanguage } from "./LanguageContext";
 
 const FormContainer = styled.div`
   display: flex;
@@ -76,6 +77,9 @@ const Button = styled.button`
 `;
 
 const ContactForm = () => {
+
+  const { language } = useLanguage();
+
   const [formData, setFormData] = useState({
     name: "",
     phoneNumber: "",
@@ -116,11 +120,11 @@ const ContactForm = () => {
   return (
     <>
       <h2 className="titlestop" id="contact">
-        Обратная связь
+      {language === 'ru' ? 'Обратная связь' : 'Contact Us'}
       </h2>
       <FormContainer id="contact">
         <a href="https://forms.amocrm.ru/rvzmlvv" className="cart-btn">
-          Оставить заявку
+        {language === 'ru' ? 'Оставить заявку' : 'Submit Request'}
         </a>
       </FormContainer>
     </>

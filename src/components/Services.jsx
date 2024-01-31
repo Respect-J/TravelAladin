@@ -1,47 +1,44 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import { useLanguage } from './LanguageContext';
 
 export default function Services() {
+  const { language } = useLanguage();
   const [selectedService, setSelectedService] = useState(null);
   const [data, setData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://127.0.0.1:8000/api/countre/");
+        const response = await fetch(`https://theeastcaravan.com/back/api/countre/?lang=${language}`);
         const jsonData = await response.json();
         setData(jsonData);
       } catch (error) {
-        console.error("Error fetching data:", error);
+        console.error('Error fetching data:', error);
       }
     };
 
     fetchData();
-  }, []); // Empty dependency array ensures the effect runs only once on mount
-
-  const handleServiceClick = (index) => {
-    setSelectedService(selectedService === index ? null : index);
-  };
+  }, [language]);
 
   return (
     <>
       <h2 className="titlestop" id="services">
-        Города
+        {language === 'ru' ? 'Города' : 'Cities'}
       </h2>
       <Section id="services">
         {data.map((service, index) => {
           return (
             <div className="service" key={index}>
-              <div className="icon" onClick={() => handleServiceClick(index)}>
+              <div className="icon" onClick={() => setSelectedService(selectedService === index ? null : index)}>
                 <img src={service.img} alt="" />
               </div>
-              <h3>{service.title}</h3>
-              <p className="hidetit">{service.description}</p>
+              <h3>{language === 'ru' ? service.title_ru : service.title_en}</h3>
+              <p className="hidetit">{language === 'ru' ? service.description_ru : service.description_en}</p>
 
-              {selectedService === index && <p>{service.description}</p>}
-              {/* Render button only in mobile version */}
-              <ButtonMobile onClick={() => handleServiceClick(index)}>
-                Подробнее
+              {selectedService === index && <p>{language === 'ru' ? service.description_ru : service.description_en}</p>}
+              <ButtonMobile onClick={() => setSelectedService(selectedService === index ? null : index)}>
+                {language === 'ru' ? 'Подробнее' : 'Details'}
               </ButtonMobile>
             </div>
           );

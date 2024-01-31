@@ -1,34 +1,59 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useLanguage } from './LanguageContext' // Замените на путь к вашему контексту
 
 const TourDate = () => {
+  const { language } = useLanguage();
+  const [tourDates, setTourDates] = useState([]);
+
+  useEffect(() => {
+    const fetchTourDates = async () => {
+      try {
+        const response = await fetch("https://theeastcaravan.com/back/tours/date/");
+        const data = await response.json();
+
+        // Выбираем правильные поля для соответствующего языка
+        const dateField = language === "en" ? "day_en" : "day_ru";
+
+        const formattedDates = data.map((item) => item[dateField]);
+        setTourDates(formattedDates);
+      } catch (error) {
+        console.error("Error fetching tour dates:", error);
+      }
+    };
+
+    fetchTourDates();
+  }, [language]);
+
   return (
     <>
       <h2 className="titlestop" id="datetour">
-        Даты туров
+        {language === "en" ? "Tour Dates" : "Даты туров"}
       </h2>
-      <div class="container3">
-        <div class="classic">
-          <div className="titletour">Классический тур по Узбекистану</div>
-          <ul className="daytour">
-            <li>- 27-30 январь</li>
-            <li>- 27-30 январь</li>
-            <li>- 27-30 январь</li>
-            <li>- 27-30 январь</li>
-          </ul>
-          <a href="https://forms.amocrm.ru/rvzmlvv" className="cart-btn" id="btn-tour">
-              Оставить заявку
-            </a>
+      <div className="container3">
+        <div className="classic">
+        <div className="titletour">
+        {language === "ru" ? "Классический тур по Узбекистану" : "Classic Tour in Uzbekistan"}
         </div>
-        <div class="wine">
-          <div className="titletour">Винный тур по Узбекистану</div>
           <ul className="daytour">
-            <li>- 27-30 январь</li>
-            <li>- 27-30 январь</li>
-            <li>- 27-30 январь</li>
-            <li>- 27-30 январь</li>
+            {tourDates.map((date, index) => (
+              <li key={index}>{date}</li>
+            ))}
           </ul>
           <a href="https://forms.amocrm.ru/rvzmlvv" className="cart-btn" id="btn-tour">
-            Оставить заявку
+            {language === "en" ? "Submit Application" : "Оставить заявку"}
+          </a>
+        </div>
+        <div className="wine">
+        <div className="titletour">
+        {language === "ru" ? "Винный тур по Узбекистану" : "Wine tour in Uzbekistan"}
+        </div>
+          <ul className="daytour">
+            {tourDates.map((date, index) => (
+              <li key={index}>{date}</li>
+            ))}
+          </ul>
+          <a href="https://forms.amocrm.ru/rvzmlvv" className="cart-btn" id="btn-tour">
+            {language === "en" ? "Submit Application" : "Оставить заявку"}
           </a>
         </div>
       </div>

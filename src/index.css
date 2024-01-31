@@ -18,7 +18,8 @@ body {
 }
 
 #recommend {
-  padding-bottom: 50px;
+  padding-top: 30px;
+  padding-bottom: 0px;
 }
 
 @media screen and (max-width: 900px) {
@@ -613,7 +614,7 @@ form.contFrm {
 }
 
 .product-price span {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: bold;
   color: #43474d;
   margin-right: 20px;
@@ -884,7 +885,7 @@ a {
 }
 
 .gXIHbh{
-  top: -435px !important;
+  top: -445px !important;
 }
 
 .dropdown-button {
@@ -1079,4 +1080,184 @@ margin: 1rem 2rem;
 
 .price{
   font-size: 15px;
+}
+
+
+
+
+
+
+.card2 {
+  width: 1000px;
+  border-radius: 20px;
+  background: #1b233d;
+  padding: 5px;
+  overflow: hidden;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 20px 0px;
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  
+  margin: auto; /* Добавлено */
+}
+
+.card2:hover {
+  transform: scale(1.05);
+}
+
+.card2 .top-section {
+  height: 350px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+background:url("https://cdn.britannica.com/01/137501-050-B02429E9/madrasa-Shirdar-Rigestan-Square-Samarkand-Uzbekistan.jpg") center/cover no-repeat;
+  position: relative;
+}
+
+.card2 .top-section .border {
+  border-bottom-right-radius: 10px;
+  height: 30px;
+  width: 130px;
+  background: white;
+  background: #1b233d;
+  position: relative;
+  transform: skew(-40deg);
+  box-shadow: -10px -10px 0 0 #1b233d;
+}
+
+.card2 .top-section .border::before {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  top: 0;
+  right: -15px;
+  background: rgba(255, 255, 255, 0);
+  border-top-left-radius: 10px;
+  box-shadow: -5px -5px 0 2px #1b233d;
+}
+
+.card2 .top-section::before {
+  content: "";
+  position: absolute;
+  top: 30px;
+  left: 0;
+  background: rgba(255, 255, 255, 0);
+  height: 15px;
+  width: 15px;
+  border-top-left-radius: 15px;
+  box-shadow: -5px -5px 0 2px #1b233d;
+}
+
+.card2 .top-section .icons {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card2 .top-section .icons .logo {
+  height: 100%;
+  aspect-ratio: 1;
+  padding: 7px 0 7px 15px;
+}
+
+.card2 .top-section .icons .logo .top-section {
+  height: 100%;
+}
+
+.card2 .top-section .icons .social-media {
+  height: 100%;
+  padding: 8px 15px;
+  display: flex;
+  gap: 7px;
+}
+
+.card2 .top-section .icons .social-media .svg {
+  height: 100%;
+  fill: #1b233d;
+}
+
+.card2 .top-section .icons .social-media .svg:hover {
+  fill: white;
+}
+
+.card2 .bottom-section {
+  margin-top: 15px;
+  padding: 10px 5px;
+}
+
+.card2 .bottom-section .title {
+  display: block;
+  font-size: 17px;
+  font-weight: bolder;
+  color: white;
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+.card2 .bottom-section .row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.card2 .bottom-section .row .item {
+  flex: 30%;
+  text-align: center;
+  padding: 5px;
+  color: rgba(170, 222, 243, 0.721);
+}
+
+.card2 .bottom-section .row .item .big-text {
+  font-size: 12px;
+  display: block;
+}
+
+.card2 .bottom-section .row .item .regular-text {
+  font-size: 9px;
+}
+
+.card2 .bottom-section .row .item:nth-child(2) {
+  border-left: 1px solid rgba(255, 255, 255, 0.126);
+  border-right: 1px solid rgba(255, 255, 255, 0.126);
+}
+
+@media screen and (max-width: 767px) {
+  .card2 {
+    margin: auto; /* Добавлено */
+    margin: 1rem 2rem; /* Удалено */
+    width: 330px;
+  }
+
+  .card2 .top-section {
+    height: 280px;
+    object-fit: contain;
+  }
+}
+
+
+.shadow__btn {
+  padding: 10px 20px;
+  border: none;
+  font-size: 17px;
+  color: #fff;
+  border-radius: 7px;
+  letter-spacing: 4px;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: 0.5s;
+  transition-property: box-shadow;
+}
+
+.shadow__btn {
+  background: rgb(0,140,255);
+  box-shadow: 0 0 25px rgb(0,140,255);
+}
+
+.shadow__btn:hover {
+  box-shadow: 0 0 5px rgb(0,140,255),
+              0 0 25px rgb(0,140,255),
+              0 0 50px rgb(0,140,255),
+              0 0 100px rgb(0,140,255);
 }

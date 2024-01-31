@@ -2,20 +2,15 @@
 import React, { useState } from 'react';
 import { FaGlobe } from 'react-icons/fa';
 import { FiChevronDown } from 'react-icons/fi';
+import { useLanguage } from './LanguageContext';
 
 
 const LanguageDropdown = () => {
-  const [language, setLanguage] = useState('ru'); // Default language
-
-  const handleLanguageChange = (newLanguage) => {
-    setLanguage(newLanguage);
-    // Дополнительная логика для обновления языка в вашем приложении
-  };
+  const { language, handleLanguageChange } = useLanguage();
 
   return (
     <div className="language-dropdown">
       <button className="dropdown-button">
-        {/* <FaGlobe className="globe-icon" /> */}
         {language === 'en' ? 'English' : 'Русский'}
         <FiChevronDown className="chevron-icon" />
       </button>
@@ -26,5 +21,4 @@ const LanguageDropdown = () => {
     </div>
   );
 };
-
 export default LanguageDropdown;

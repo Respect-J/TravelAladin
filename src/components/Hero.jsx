@@ -2,7 +2,11 @@ import React from "react";
 import styled from "styled-components";
 import homeImage from "../assets/hero.png";
 import hero from "../assets/Frame4.png";
+import { useLanguage } from "./LanguageContext"; // Замените на путь к вашему контексту
+
 export default function Hero() {
+  const { language } = useLanguage();
+
   return (
     <Section id="hero">
       <div className="background">
@@ -10,21 +14,20 @@ export default function Hero() {
       </div>
       <div className="content">
         <div className="title">
-          <h1>THE EAST CARAVAN</h1>
+          <h1>{language === "ru" ? "THE EAST CARAVAN" : "THE EAST CARAVAN"}</h1>
           <p className="herotit">
-            Откройте для себя мир с нами и создайте свои незабываемые
-            приключения. Мы - ваш проводник в удивительные уголки планеты, где
-            каждый момент наполнен удивительными впечатлениями.
+            {language === "ru"
+              ? "Откройте для себя мир с нами и создайте свои незабываемые приключения. Мы - ваш проводник в удивительные уголки планеты, где каждый момент наполнен удивительными впечатлениями."
+              : "Discover the world with us and create your unforgettable adventures. We are your guide to amazing corners of the planet, where every moment is filled with amazing experiences."}
           </p>
           <a href="#recommend" className="cart-btn">
-              ПОДОБРАТЬ ТУР
-            </a>
+            {language === "ru" ? "ПОДОБРАТЬ ТУР" : "FIND A TOUR"}
+          </a>
         </div>
       </div>
     </Section>
   );
 }
-
 const Section = styled.section`
   position: relative;
   margin-top: 4.3rem;

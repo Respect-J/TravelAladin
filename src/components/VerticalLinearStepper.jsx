@@ -7,26 +7,28 @@ import StepContent from "@mui/material/StepContent";
 import Button from "@mui/material/Button";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
+import { useLanguage } from "./LanguageContext";
 
-const API_URL = "http://127.0.0.1:8000/api/step/";
+const API_URL = "https://theeastcaravan.com/back/api/step/";
 
 export default function VerticalLinearStepper() {
   const [steps, setSteps] = useState([]);
   const [activeStep, setActiveStep] = useState(0);
+  const { language } = useLanguage();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch(API_URL);
         const data = await response.json();
-        setSteps(data.map((step) => step.title));
+        setSteps(data.map((step) => language === 'ru' ? step.title_ru : step.title_en));
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     };
 
     fetchData();
-  }, []); // Empty dependency array ensures the effect runs only once on mount
+  }, [language]);// Empty dependency array ensures the effect runs only once on mount
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -63,7 +65,7 @@ export default function VerticalLinearStepper() {
               <StepLabel
                 optional={
                   index === steps.length - 1 ? (
-                    <Typography variant="caption">Последняя стадия</Typography>
+                    <Typography variant="caption">{language === 'ru' ? 'Последняя стадия' : 'Last Stage'}</Typography>
                   ) : null
                 }
               >
@@ -77,9 +79,9 @@ export default function VerticalLinearStepper() {
         </Stepper>
         {activeStep === steps.length && (
           <Paper square elevation={0} sx={{ p: 3 }}>
-            <Typography>Иии на этом всё!</Typography>
+            <Typography>{language === 'ru' ? 'Иии на этом всё!' : 'And that\'s it!'}</Typography>
             <Button onClick={handleReset} sx={{ mt: 1, mr: 1 }}>
-              В начало
+              {language === 'ru' ? 'В начало' : 'Start Over'}
             </Button>
           </Paper>
         )}

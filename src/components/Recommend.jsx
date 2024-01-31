@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { useLanguage } from "./LanguageContext";
 import Destination1 from "../assets/Destination1.png";
 import Destination2 from "../assets/Destination2.png";
 import Destination3 from "../assets/Destination3.png";
@@ -13,63 +14,104 @@ export default function Recommend() {
   const data = [
     {
       image: Destination1,
-      title: "Классический Тур По Узбекистану",
-      subTitle:
-        "На 8 ДНЕЙ 7 НОЧЕЙ Тур По Городам Ташкент-Самарканд-Бухара",
+      title_ru: "Классический Тур По Узбекистану",
+      subTitle_ru: "На 8 ДНЕЙ 7 НОЧЕЙ Тур По Городам Ташкент-Самарканд-Бухара",
+      title_en: "Classic Tour of Uzbekistan",
+      subTitle_en: "8 Days 7 Nights Tour to Tashkent-Samarkand-Bukhara",
       cost: "38,800",
       duration: "Approx 2-night trip",
       link: "/product/",
     },
     {
       image: Destination2,
-      title: "Винный Тур по Узбекистану",
-      subTitle:
-        " На 8 ДНЕЙ 7 НОЧЕЙ Тур По Городам Ташкент-Самарканд-Бухара",
+      title_ru: "Винный Тур по Узбекистану",
+      subTitle_ru: "На 8 ДНЕЙ 7 НОЧЕЙ Тур По Городам Ташкент-Самарканд-Бухара",
+      title_en: "Wine Tour of Uzbekistan",
+      subTitle_en: "8 Days 7 Nights Tour to Tashkent-Samarkand-Bukhara",
       cost: "54,200",
       duration: "Approx 2-night trip",
       link: "/product2/",
     },
     {
       image: Destination4,
-      title: "Индивидуальный Тур по Узбекистану",
-      subTitle: "Тур По Городам Узбекистана по желанию и выбору туриста",
+      title_ru: "Индивидуальный Тур по Узбекистану",
+      subTitle_ru: "Тур По Городам Узбекистана по желанию и выбору туриста",
+      title_en: "Individual Tour of Uzbekistan",
+      subTitle_en:
+        "Tour to the Cities of Uzbekistan at the request and choice of the tourist",
       cost: "45,500",
       duration: "Approx 2-night trip",
       link: "/product3/",
     },
     {
       image: Destination5,
-      title: "Бизнес Тур",
-      subTitle: "Тур По Городам Узбекистана по желанию и выбору туриста",
+      title_ru: "Бизнес Тур",
+      subTitle_ru: "Тур По Городам Узбекистана по желанию и выбору туриста",
+      title_en: "Bussines Tour of Uzbekistan",
+      subTitle_en: "8 Days 7 Nights Tour to Tashkent-Samarkand-Bukhara",
       cost: "45,500",
       duration: "Approx 2-night trip",
       link: "/",
     },
   ];
 
+  const { language } = useLanguage();
+  const [selectedService, setSelectedService] = useState(null);
+
+  const [title, setTitle] = useState(
+    language === "ru" ? data[0].title_ru : data[0].title_en
+  );
+  const [subTitle, setSubTitle] = useState(
+    language === "ru" ? data[0].subTitle_ru : data[0].subTitle_en
+  );
+
   const items = data.map((destination) => ({
     image: destination.image,
-    copy: destination.title,
-    subTitle: destination.subTitle,
+    title_ru: destination.title_ru,
+    subTitle_ru: destination.subTitle_ru,
+    title_en: destination.title_en,
+    subTitle_en: destination.subTitle_en,
     link: destination.link,
   }));
 
+  useEffect(() => {
+    const currentIndex = 0; // You can set the initial index based on your requirements
+    setTitle(
+      language === "ru"
+        ? data[currentIndex].title_ru
+        : data[currentIndex].title_en
+    );
+    setSubTitle(
+      language === "ru"
+        ? data[currentIndex].subTitle_ru
+        : data[currentIndex].subTitle_en
+    );
+  }, [language]);
+
+  const handleCardChange = (index) => {
+    setTitle(language === "ru" ? data[index].title_ru : data[index].title_en);
+    setSubTitle(
+      language === "ru" ? data[index].subTitle_ru : data[index].subTitle_en
+    );
+  };
+
   const Card = (props) => {
+    const { image, title, subTitle, link, onChange } = props;
     const navigate = useNavigate();
 
     const handleDetailsClick = () => {
-      navigate(props.link);
+      navigate(link);
+      onChange(); // Call the parent's onChange to update the title and subtitle
     };
 
     return (
-      
       <li className="card">
-        <img src={props.image} alt={props.copy} className="cardimg" />
-        <p>{props.copy}</p>
-        <p>{props.subTitle}</p>
+        <img src={image} alt={title} className="cardimg" />
+        <p>{title}</p>
+        <p>{subTitle}</p>
         <a href={handleDetailsClick} onClick={handleDetailsClick}>
           <button className="cardbut" onClick={handleDetailsClick}>
-            Подробнее
+            {language === "ru" ? "Подробнее" : "Details"}
           </button>
         </a>
       </li>
@@ -90,7 +132,7 @@ export default function Recommend() {
 
   useEffect(() => {
     document.documentElement.style.setProperty("--num", carouselItems.length);
-  }, [carouselItems]);
+  }, [carouselItems, language]);
 
   const handleAnimationEnd = () => {
     if (moveClass === "prev") {
@@ -114,36 +156,37 @@ export default function Recommend() {
   };
 
   return (
-<>
+    <>
+      <h2 className="titlestop" id="recommend">
+        {language === "ru" ? "Программы туров" : "Tour Programs"}
+      </h2>
 
-    <h2 className="titlestop"  id="recommend">Программы туров</h2>
-
-    <div className="carouselwrapper module-wrapper" id="recommend">
-      <div className="ui">
-        <button onClick={() => setMoveClass("next")} className="prev">
-          <span className="material-icons">chevron_left</span>
-        </button>
-        <button onClick={() => setMoveClass("prev")} className="next">
-          <span className="material-icons">chevron_right</span>
-        </button>
+      <div className="carouselwrapper module-wrapper" id="recommend">
+        <div className="ui">
+          <button onClick={() => setMoveClass("next")} className="prev">
+            <span className="material-icons">chevron_left</span>
+          </button>
+          <button onClick={() => setMoveClass("prev")} className="next">
+            <span className="material-icons">chevron_right</span>
+          </button>
+        </div>
+        <ul
+          onAnimationEnd={handleAnimationEnd}
+          className={`${moveClass} carousel`}
+        >
+          {carouselItems.map((t, index) => (
+            <Card
+              key={t.copy + index}
+              image={t.image}
+              title={language === "ru" ? t.title_ru : t.title_en} // Используйте данные из массива data
+              subTitle={language === "ru" ? t.subTitle_ru : t.subTitle_en} // Используйте данные из массива data
+              link={t.link}
+              onChange={() => handleCardChange(index)}
+            />
+          ))}
+        </ul>
       </div>
-      <ul
-        onAnimationEnd={handleAnimationEnd}
-        className={`${moveClass} carousel`}
-      >
-        {carouselItems.map((t, index) => (
-          <Card
-            key={t.copy + index}
-            image={t.image}
-            copy={t.copy}
-            subTitle={t.subTitle}
-            link={t.link}
-          />
-        ))}
-      </ul>
-    </div>
     </>
-
   );
 }
 const Section = styled.section`
@@ -151,7 +194,7 @@ const Section = styled.section`
   .title {
     text-align: center;
   }
- 
+
   .packages {
     display: flex;
     justify-content: center;

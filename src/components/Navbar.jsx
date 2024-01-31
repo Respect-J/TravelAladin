@@ -5,8 +5,12 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { VscChromeClose } from "react-icons/vsc";
 import { FaLanguage } from "react-icons/fa";
 import LanguageDropdown from "./LanguageDropdown";
+import { useLanguage } from "./LanguageContext"; // Замените на путь к вашему контексту
+
 export default function Navbar() {
   const [navbarState, setNavbarState] = useState(false);
+  const { language } = useLanguage();
+
   return (
     <>
       <Nav className="nav">
@@ -14,7 +18,7 @@ export default function Navbar() {
           <a href="/">
             <div className="container2">
               <img src={logo} alt="" />
-              The East Caravan
+              {language === "ru" ? "The East Caravan" : "The East Caravan"}
             </div>
           </a>
           <div className="toggle">
@@ -28,22 +32,22 @@ export default function Navbar() {
 
         <ul>
           <li>
-            <a href="/">Главная</a>
+            <a href="/">{language === "ru" ? "Главная" : "Home"}</a>
           </li>
           <li>
-            <a href="http://localhost:3000/#services">Города</a>
+            <a href="https://theeastcaravan.com/#services">{language === "ru" ? "Города" : "Cities"}</a>
           </li>
           <li>
-            <a href="http://localhost:3000/#recommend">Программы туров</a>
+            <a href="https://theeastcaravan.com/#recommend">{language === "ru" ? "Программы туров" : "Tour Programs"}</a>
           </li>
           <li>
-            <a href="http://localhost:3000/#contact">Обратная связь</a>
+            <a href="https://theeastcaravan.com/#contact">{language === "ru" ? "Обратная связь" : "Contact"}</a>
           </li>
           <li>
-            <a href="http://localhost:3000/#testimonials">Отзывы</a>
+            <a href="https://theeastcaravan.com/#testimonials">{language === "ru" ? "Отзывы" : "Testimonials"}</a>
           </li>
           <li>
-            <a href="/about">О нас</a>
+            <a href="/about">{language === "ru" ? "О нас" : "About Us"}</a>
           </li>
         </ul>
         <span className="lang">
@@ -54,44 +58,44 @@ export default function Navbar() {
         <ul>
           <li>
             <a href="/" onClick={() => setNavbarState(false)}>
-              Главная
+              {language === "ru" ? "Главная" : "Home"}
             </a>
           </li>
           <li>
             <a
-              href="http://localhost:3000/#services"
+              href="https://theeastcaravan.com/#services"
               onClick={() => setNavbarState(false)}
             >
-              Города
+              {language === "ru" ? "Города" : "Cities"}
             </a>
           </li>
           <li>
             <a
-              href="http://localhost:3000/#recommend"
+              href="https://theeastcaravan.com/#recommend"
               onClick={() => setNavbarState(false)}
             >
-              Программы туров
+              {language === "ru" ? "Программы туров" : "Tour Programs"}
             </a>
           </li>
           <li>
             <a
-              href="http://localhost:3000/#testimonials"
+              href="https://theeastcaravan.com/#testimonials"
               onClick={() => setNavbarState(false)}
             >
-              Отзывы
+              {language === "ru" ? "Отзывы" : "Testimonials"}
             </a>
           </li>
           <li>
             <a
-              href="http://localhost:3000/#contact"
+              href="https://theeastcaravan.com/#contact"
               onClick={() => setNavbarState(false)}
             >
-              Обратная связь
+              {language === "ru" ? "Обратная связь" : "Contact"}
             </a>
           </li>
           <li>
             <a href="/about" onClick={() => setNavbarState(false)}>
-              О нас
+              {language === "ru" ? "О нас" : "About Us"}
             </a>
           </li>
           <li>
@@ -102,6 +106,7 @@ export default function Navbar() {
     </>
   );
 }
+
 
 const Nav = styled.nav`
   display: flex;
