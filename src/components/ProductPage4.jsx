@@ -2,13 +2,14 @@ import React, { useState, useEffect } from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import Accordion from "./Accordion";
-import AccordionAll from "./AccordionAll";
 import axios from "axios";
 import ScrollToTop from "./ScrollToTop";
 import ContactBubble from "./ContactBubble";
 import Testimonials2 from "./Testimonials2";
 import Gallery from "./Gallery";
 import { useLanguage } from "./LanguageContext";
+import Accordion1 from "./Accordion1";
+import Accordion2 from "./Accordion2";
 
 const ProductPage4 = () => {
   const { translations, language } = useLanguage();
@@ -31,9 +32,7 @@ const ProductPage4 = () => {
         setAccordionData(data.days);
         setComesOutData(data.comes_out);
 
-        const parsedPrice = parseFloat(
-          data.tour.price_for_one.replace("", "")
-        );
+        const parsedPrice = parseFloat(data.tour.price_for_one.replace("", ""));
         setPrice(isNaN(parsedPrice) ? null : parsedPrice);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -79,8 +78,28 @@ const ProductPage4 = () => {
                   <li key={id}>{description}</li>
                 ))}
               </ul>
-              <AccordionAll/>
-              <Gallery />
+              <div className="acors-container">
+                <div className="acor1">
+                  <div className="titleacor">
+                    {language === "ru"
+                      ? `Классический Тур по Узбекистану`
+                      : `Classic Tour of Uzbekistan`}
+                  </div>
+                  <Accordion1 />
+                </div>
+                <div className="acor1">
+                  <div className="titleacor">
+                    {language === "ru"
+                      ? `Винный Тур по Узбекистану`
+                      : `Wine Tour of Uzbekistan`}
+                  </div>
+                  <Accordion2 />
+                </div>
+              </div>
+
+              <div className="galleryall">
+                <Gallery className="galleryall" />
+              </div>
             </div>
 
             <div className="right-column">
@@ -124,7 +143,11 @@ const ProductPage4 = () => {
                         language === "ru"
                           ? `Цена за одного`
                           : `Price for one person`
-                      }: ${language === "ru" ? `Стоимость тура зависит от выбранных городов и видов отдыха.` : `The cost of the tour depends on the selected cities and types of recreation.`}`
+                      }: ${
+                        language === "ru"
+                          ? `Стоимость тура зависит от выбранных городов и видов отдыха.`
+                          : `The cost of the tour depends on the selected cities and types of recreation.`
+                      }`
                     : translations && translations.loading}
                 </span>
               </div>
@@ -135,7 +158,11 @@ const ProductPage4 = () => {
                         language === "ru"
                           ? `Цена за двоих`
                           : `Price for two persons`
-                      }: ${language === "ru" ? `Стоимость тура зависит от выбранных городов и видов отдыха.` : `The cost of the tour depends on the selected cities and types of recreation.`}`
+                      }: ${
+                        language === "ru"
+                          ? `Стоимость тура зависит от выбранных городов и видов отдыха.`
+                          : `The cost of the tour depends on the selected cities and types of recreation.`
+                      }`
                     : translations && translations.loading}
                 </span>
               </div>
@@ -147,7 +174,7 @@ const ProductPage4 = () => {
           </>
         )}
       </main>
-      <Testimonials2 />
+      
       <Footer />
     </>
   );

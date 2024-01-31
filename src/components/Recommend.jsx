@@ -9,6 +9,7 @@ import Destination4 from "../assets/Destination4.png";
 import Destination5 from "../assets/Destination5.png";
 import Destination6 from "../assets/Destination6.png";
 import ProductPage from "./ProductPage";
+import Loader from "./Loader";
 
 export default function Recommend() {
   const data = [
@@ -41,7 +42,7 @@ export default function Recommend() {
         "Tour to the Cities of Uzbekistan at the request and choice of the tourist",
       cost: "45,500",
       duration: "Approx 2-night trip",
-      link: "/product3/",
+      link: "/product4/",
     },
     {
       image: Destination5,
@@ -51,7 +52,7 @@ export default function Recommend() {
       subTitle_en: "8 Days 7 Nights Tour to Tashkent-Samarkand-Bukhara",
       cost: "45,500",
       duration: "Approx 2-night trip",
-      link: "/",
+      link: "/product3/",
     },
   ];
 
@@ -86,7 +87,12 @@ export default function Recommend() {
         ? data[currentIndex].subTitle_ru
         : data[currentIndex].subTitle_en
     );
+   
+
+    
   }, [language]);
+
+ 
 
   const handleCardChange = (index) => {
     setTitle(language === "ru" ? data[index].title_ru : data[index].title_en);
@@ -95,6 +101,7 @@ export default function Recommend() {
     );
   };
 
+  
   const Card = (props) => {
     const { image, title, subTitle, link, onChange } = props;
     const navigate = useNavigate();

@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { useLanguage } from './LanguageContext';
+import Loader from "./Loader";
 
 export default function Services() {
   const { language } = useLanguage();
   const [selectedService, setSelectedService] = useState(null);
   const [data, setData] = useState([]);
+  
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -17,9 +20,12 @@ export default function Services() {
         console.error('Error fetching data:', error);
       }
     };
+   
 
     fetchData();
   }, [language]);
+
+ 
 
   return (
     <>

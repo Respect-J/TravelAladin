@@ -46,7 +46,7 @@ const IndividualTour = () => {
           <span class="title">Индивидуальный Тур</span>
           <div class="row row1">
             <div class="item">
-              <button class="shadow__btn" onClick={handleClick}>uiverse</button>
+              <button class="shadow__btn" onClick={handleClick}>Подробнее</button>
             </div>
           </div>
         </div>

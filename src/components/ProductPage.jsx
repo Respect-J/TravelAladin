@@ -5,9 +5,9 @@ import Accordion from "./Accordion";
 import axios from "axios";
 import ScrollToTop from "./ScrollToTop";
 import ContactBubble from "./ContactBubble";
-import Testimonials2 from "./Testimonials2";
+import Testimonials4 from "./Testimonials4";
 import Gallery from "./Gallery";
-import { useLanguage } from './LanguageContext';
+import { useLanguage } from "./LanguageContext";
 
 const ProductPage = () => {
   const { translations, language } = useLanguage();
@@ -55,7 +55,11 @@ const ProductPage = () => {
       <ContactBubble />
       <main className="container">
         {loading ? (
-          <p>{translations && translations.loading ? translations.loading : "Loading..."}</p>
+          <p>
+            {translations && translations.loading
+              ? translations.loading
+              : "Loading..."}
+          </p>
         ) : (
           <>
             <div className="left-column">
@@ -66,33 +70,47 @@ const ProductPage = () => {
                 alt={tourData.title}
               />
               <br />
-              <p className="inclusions-title">{translations && translations.included}</p>
+              <p className="inclusions-title">
+                {translations && translations.included}
+              </p>
               <ul className="inclusions-list">
                 {comesOutData.map(({ id, description }) => (
                   <li key={id}>{description}</li>
                 ))}
               </ul>
-              <Gallery />
+              <div className="galleryall">
+                <Gallery className="galleryall" />
+              </div>
             </div>
 
             <div className="right-column">
               <div className="product-description">
                 <span>{translations && translations.tour}</span>
-                <h1>{language === "ru" ? tourData.title_ru : tourData.title_en}</h1>
-                <p>{language === "ru" ? tourData.description_ru : tourData.description_en}</p>
+                <h1>
+                  {language === "ru" ? tourData.title_ru : tourData.title_en}
+                </h1>
+                <p>
+                  {language === "ru"
+                    ? tourData.description_ru
+                    : tourData.description_en}
+                </p>
               </div>
 
               <div className="product-configuration">
                 <div>
                   <h2>{translations && translations.dayDescription}</h2>
                   <div className="accordion">
-                    {accordionData.map(({ id, description_ru, description_en }) => (
-                      <Accordion
-                        key={id}
-                        title={`${id} ${language === "ru" ? `День` : `Day`}`}
-                        content={language === "ru" ? description_ru : description_en}
-                      />
-                    ))}
+                    {accordionData.map(
+                      ({ id, description_ru, description_en }) => (
+                        <Accordion
+                          key={id}
+                          title={`${id} ${language === "ru" ? `День` : `Day`}`}
+                          content={
+                            language === "ru" ? description_ru : description_en
+                          }
+                        />
+                      )
+                    )}
                   </div>
                 </div>
               </div>
@@ -100,26 +118,34 @@ const ProductPage = () => {
               <div className="product-price">
                 <span>
                   {price !== null
-                    ? `${language === "ru" ? `Цена за одного` : `Price for one person`}: ${tourData.price_for_one}$`
+                    ? `${
+                        language === "ru"
+                          ? `Цена за одного`
+                          : `Price for one person`
+                      }: ${tourData.price_for_one}$`
                     : translations && translations.loading}
                 </span>
               </div>
               <div className="product-price">
                 <span>
                   {price !== null
-                    ? `${language === "ru" ? `Цена за двоих` : `Price for two persons`}: ${tourData.price_for_two}$`
+                    ? `${
+                        language === "ru"
+                          ? `Цена за двоих`
+                          : `Price for two persons`
+                      }: ${tourData.price_for_two}$`
                     : translations && translations.loading}
                 </span>
               </div>
 
               <a href="https://forms.amocrm.ru/rvzmlvv" className="cart-btn">
-              {language === "ru" ? `Оставить заявку` : `Submit application`}
+                {language === "ru" ? `Оставить заявку` : `Submit application`}
               </a>
             </div>
           </>
         )}
       </main>
-      <Testimonials2 />
+      <Testimonials4 />
       <Footer />
     </>
   );

@@ -13,6 +13,7 @@ const FormContainer = styled.div`
   background-position: center;
   padding: 60px;
   
+  
 `;
 
 const StyledForm = styled.form`

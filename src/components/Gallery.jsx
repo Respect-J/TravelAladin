@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import IMG from '../assets/Destination1.png'
 import IMG2 from '../assets/Destination2.png'
 import IMG3 from '../assets/Destination3.png'
@@ -15,6 +15,16 @@ const images = [
 ];
 
 function Gallery() {
+  const [fullscreenImage, setFullscreenImage] = useState(null);
+
+  const openFullscreen = (index) => {
+    setFullscreenImage(images[index]);
+  };
+
+  const closeFullscreen = () => {
+    setFullscreenImage(null);
+  };
+
   return (
     <div className="gallery">
       {images.map((image, index) => (
@@ -23,10 +33,21 @@ function Gallery() {
           className="gallery__item"
           src={image.src}
           alt={image.alt}
+          onClick={() => openFullscreen(index)}
         />
       ))}
+
+      {fullscreenImage && (
+        <div className="fullscreen-overlay" onClick={closeFullscreen}>
+          <div className="fullscreen-content">
+            <img src={fullscreenImage.src} alt={fullscreenImage.alt} />
+            <button onClick={closeFullscreen}>x</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
 
 export default Gallery;
+

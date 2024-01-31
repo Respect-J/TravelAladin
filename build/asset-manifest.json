@@ -1,0 +1,39 @@
+{
+  "files": {
+    "main.css": "./static/css/main.32ecc668.chunk.css",
+    "main.js": "./static/js/main.bd14fabd.chunk.js",
+    "main.js.map": "./static/js/main.bd14fabd.chunk.js.map",
+    "runtime-main.js": "./static/js/runtime-main.db2c6f0f.js",
+    "runtime-main.js.map": "./static/js/runtime-main.db2c6f0f.js.map",
+    "static/css/2.19fce509.chunk.css": "./static/css/2.19fce509.chunk.css",
+    "static/js/2.25af7b6a.chunk.js": "./static/js/2.25af7b6a.chunk.js",
+    "static/js/2.25af7b6a.chunk.js.map": "./static/js/2.25af7b6a.chunk.js.map",
+    "index.html": "./index.html",
+    "static/css/2.19fce509.chunk.css.map": "./static/css/2.19fce509.chunk.css.map",
+    "static/css/main.32ecc668.chunk.css.map": "./static/css/main.32ecc668.chunk.css.map",
+    "static/js/2.25af7b6a.chunk.js.LICENSE.txt": "./static/js/2.25af7b6a.chunk.js.LICENSE.txt",
+    "static/media/1.b0e4eac7.svg": "./static/media/1.b0e4eac7.svg",
+    "static/media/Arrow_top.119df91f.png": "./static/media/Arrow_top.119df91f.png",
+    "static/media/Destination1.b43b40eb.png": "./static/media/Destination1.b43b40eb.png",
+    "static/media/Destination2.64eec980.png": "./static/media/Destination2.64eec980.png",
+    "static/media/Destination3.b4028caa.png": "./static/media/Destination3.b4028caa.png",
+    "static/media/Destination4.c19a433b.png": "./static/media/Destination4.c19a433b.png",
+    "static/media/Destination5.8db742a0.png": "./static/media/Destination5.8db742a0.png",
+    "static/media/Destination6.b43b40eb.png": "./static/media/Destination6.b43b40eb.png",
+    "static/media/Frame4.793b796e.png": "./static/media/Frame4.793b796e.png",
+    "static/media/IMG_5422.c855365f.jpeg": "./static/media/IMG_5422.c855365f.jpeg",
+    "static/media/WhatsApp.svg.7bc64cb7.png": "./static/media/WhatsApp.svg.7bc64cb7.png",
+    "static/media/ava1.793b2773.jpg": "./static/media/ava1.793b2773.jpg",
+    "static/media/ava2.23d8e43a.jpg": "./static/media/ava2.23d8e43a.jpg",
+    "static/media/ava3.43537d42.jpg": "./static/media/ava3.43537d42.jpg",
+    "static/media/index.css": "./static/media/blog1.d51af422.jpg",
+    "static/media/hero.decd6e52.png": "./static/media/hero.decd6e52.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.db2c6f0f.js",
+    "static/css/2.19fce509.chunk.css",
+    "static/js/2.25af7b6a.chunk.js",
+    "static/css/main.32ecc668.chunk.css",
+    "static/js/main.bd14fabd.chunk.js"
+  ]
+}

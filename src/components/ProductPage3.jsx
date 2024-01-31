@@ -78,7 +78,9 @@ const ProductPage = () => {
                   <li key={id}>{description}</li>
                 ))}
               </ul>
-              <Gallery />
+              <div className="galleryall">
+                <Gallery className="galleryall" />
+              </div>
             </div>
 
             <div className="right-column">

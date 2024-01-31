@@ -5,7 +5,7 @@ import Accordion from "./Accordion";
 import axios from "axios";
 import ScrollToTop from "./ScrollToTop";
 import ContactBubble from "./ContactBubble";
-import Testimonials2 from "./Testimonials2";
+import Testimonials3 from "./Testimonials3";
 import Gallery from "./Gallery";
 import { useLanguage } from "./LanguageContext";
 
@@ -78,7 +78,9 @@ const ProductPage = () => {
                   <li key={id}>{description}</li>
                 ))}
               </ul>
-              <Gallery />
+              <div className="galleryall">
+                <Gallery className="galleryall" />
+              </div>
             </div>
 
             <div className="right-column">
@@ -145,7 +147,7 @@ const ProductPage = () => {
           </>
         )}
       </main>
-      <Testimonials2 />
+      <Testimonials3 />
       <Footer />
     </>
   );
