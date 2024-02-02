@@ -8,6 +8,9 @@ import ContactBubble from "./ContactBubble";
 import Testimonials2 from "./Testimonials2";
 import Gallery from "./Gallery";
 import { useLanguage } from "./LanguageContext";
+import Accordion3 from "./Accordion3";
+import ImageCarousel from "./ImageCarousel";
+import Testimonials from "./Testimonials";
 
 const ProductPage = () => {
   const { translations, language } = useLanguage();
@@ -22,7 +25,7 @@ const ProductPage = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "https://theeastcaravan.com/back/tours/api/tour/2/"
+          "https://back.theeastcaravan.com/tours/api/tour/2/"
         );
         const data = response.data;
 
@@ -66,7 +69,7 @@ const ProductPage = () => {
               <img
                 data-image="red"
                 className="active"
-                src={`https://theeastcaravan.com${tourData.mainimg}`}
+                src={`https://back.theeastcaravan.com${tourData.mainimg}`}
                 alt={tourData.title}
               />
               <br />
@@ -79,7 +82,6 @@ const ProductPage = () => {
                 ))}
               </ul>
               <div className="galleryall">
-                <Gallery className="galleryall" />
               </div>
             </div>
 
@@ -100,30 +102,21 @@ const ProductPage = () => {
                 <div>
                   <h2>{translations && translations.dayDescription}</h2>
                   <div className="accordion">
-                    {accordionData.map((item, index) => (
-                      <Accordion
-                        key={index}
-                        title={`${index + 1} ${
-                          language === "ru" ? `День` : `Day`
-                        }`}
-                        content={
-                          language === "ru"
-                            ? item.description_ru
-                            : item.description_en
-                        }
-                      />
-                    ))}
+                    <Accordion3/>
                   </div>
                 </div>
               </div>
+              <span className="product-price" style={{fontSize: '20px', fontWeight: 'bold'}}>
+              {language === "ru" ? "При группе 15 человек" : "For a group of 15 people"}
 
+              </span>
               <div className="product-price">
                 <span>
                   {price !== null
                     ? `${
                         language === "ru"
-                          ? `Цена за одного`
-                          : `Price for one person`
+                          ? `Одноместное размещение`
+                          : `Single occupancy`
                       }: ${tourData.price_for_one}$`
                     : translations && translations.loading}
                 </span>
@@ -133,13 +126,13 @@ const ProductPage = () => {
                   {price !== null
                     ? `${
                         language === "ru"
-                          ? `Цена за двоих`
-                          : `Price for two persons`
+                          ? `Двухместное размещение`
+                          : `Double occupancy`
                       }: ${tourData.price_for_two}$`
                     : translations && translations.loading}
                 </span>
               </div>
-
+              
               <a href="https://forms.amocrm.ru/rvzmlvv" className="cart-btn">
                 {language === "ru" ? `Оставить заявку` : `Submit application`}
               </a>
@@ -147,7 +140,12 @@ const ProductPage = () => {
           </>
         )}
       </main>
-      <Testimonials2 />
+      <ImageCarousel/>
+
+      <Testimonials />
+      {/* <div className="galleryall2">
+        <Gallery className="galleryall" />
+      </div> */}
       <Footer />
     </>
   );

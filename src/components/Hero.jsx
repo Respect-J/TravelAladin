@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import homeImage from "../assets/hero.png";
-import hero from "../assets/Frame4.png";
+import hero from "../assets/Frame 3 (2).png";
 import { useLanguage } from "./LanguageContext"; // Замените на путь к вашему контексту
 
 export default function Hero() {
@@ -20,7 +20,7 @@ export default function Hero() {
               ? "Откройте для себя мир с нами и создайте свои незабываемые приключения. Мы - ваш проводник в удивительные уголки планеты, где каждый момент наполнен удивительными впечатлениями."
               : "Discover the world with us and create your unforgettable adventures. We are your guide to amazing corners of the planet, where every moment is filled with amazing experiences."}
           </p>
-          <a href="#recommend" className="cart-btn">
+          <a href="#individ" className="cart-btn">
             {language === "ru" ? "ПОДОБРАТЬ ТУР" : "FIND A TOUR"}
           </a>
         </div>
@@ -127,10 +127,10 @@ const Section = styled.section`
     .content {
       .title {
         h1 {
-          font-size: 1rem;
+          font-size: 1.5rem;
         }
         p {
-          font-size: 0.8rem;
+          font-size: 1rem;
           padding: 1vw;
         }
       }

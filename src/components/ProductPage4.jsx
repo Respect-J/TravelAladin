@@ -10,6 +10,8 @@ import Gallery from "./Gallery";
 import { useLanguage } from "./LanguageContext";
 import Accordion1 from "./Accordion1";
 import Accordion2 from "./Accordion2";
+import Accordion3 from "./Accordion3";
+import ImageCarousel from "./ImageCarousel";
 
 const ProductPage4 = () => {
   const { translations, language } = useLanguage();
@@ -24,7 +26,7 @@ const ProductPage4 = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "https://theeastcaravan.com/back/tours/api/tour/3/"
+          "https://back.theeastcaravan.com/tours/api/tour/3/"
         );
         const data = response.data;
 
@@ -66,7 +68,7 @@ const ProductPage4 = () => {
               <img
                 data-image="red"
                 className="active"
-                src={`https://theeastcaravan.com${tourData.mainimg}`}
+                src={`https://back.theeastcaravan.com${tourData.mainimg}`}
                 alt={tourData.title}
               />
               <br />
@@ -78,27 +80,39 @@ const ProductPage4 = () => {
                   <li key={id}>{description}</li>
                 ))}
               </ul>
+
               <div className="acors-container">
+
                 <div className="acor1">
                   <div className="titleacor">
                     {language === "ru"
-                      ? `Классический Тур по Узбекистану`
-                      : `Classic Tour of Uzbekistan`}
+                      ? `Классический Тур по Узбекистану:`
+                      : `Classic Tour of Uzbekistan:`}
                   </div>
                   <Accordion1 />
                 </div>
+
                 <div className="acor1">
                   <div className="titleacor">
                     {language === "ru"
-                      ? `Винный Тур по Узбекистану`
-                      : `Wine Tour of Uzbekistan`}
+                      ? `Винный Тур по Узбекистану:`
+                      : `Wine Tour of Uzbekistan:`}
                   </div>
                   <Accordion2 />
                 </div>
+
+                {/* <div className="acor1">
+                  <div className="titleacor">
+                    {language === "ru"
+                      ? `Бизнес Тур по Узбекистану:`
+                      : `Bussines Tour of Uzbekistan:`}
+                  </div>
+                  <Accordion3 />
+                </div> */}
+
               </div>
 
               <div className="galleryall">
-                <Gallery className="galleryall" />
               </div>
             </div>
 
@@ -135,19 +149,15 @@ const ProductPage4 = () => {
                   </div>
                 </div>
               </div>
-
+              {language === "ru" ? "При группе 3-6 человек" : "For a group of 3-6 peoples"}
               <div className="product-price">
                 <span>
                   {price !== null
                     ? `${
                         language === "ru"
-                          ? `Цена за одного`
-                          : `Price for one person`
-                      }: ${
-                        language === "ru"
-                          ? `Стоимость тура зависит от выбранных городов и видов отдыха.`
-                          : `The cost of the tour depends on the selected cities and types of recreation.`
-                      }`
+                          ? `Одноместное размещение`
+                          : `Single occupancy`
+                      }: ${tourData.price_for_one}$`
                     : translations && translations.loading}
                 </span>
               </div>
@@ -156,13 +166,9 @@ const ProductPage4 = () => {
                   {price !== null
                     ? `${
                         language === "ru"
-                          ? `Цена за двоих`
-                          : `Price for two persons`
-                      }: ${
-                        language === "ru"
-                          ? `Стоимость тура зависит от выбранных городов и видов отдыха.`
-                          : `The cost of the tour depends on the selected cities and types of recreation.`
-                      }`
+                          ? `Двухместное размещение`
+                          : `Double occupancy`
+                      }: ${tourData.price_for_two}$`
                     : translations && translations.loading}
                 </span>
               </div>
@@ -174,6 +180,7 @@ const ProductPage4 = () => {
           </>
         )}
       </main>
+      <ImageCarousel/>
       
       <Footer />
     </>

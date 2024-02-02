@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { useLanguage } from "./LanguageContext";
-import Destination1 from "../assets/Destination1.png";
-import Destination2 from "../assets/Destination2.png";
+import Destination1 from "../assets/khiva-uzbekistan-cafe-terrassa-restaurant.png";
+import Destination2 from "../assets/untitled-1-2-1024x683.jpg";
 import Destination3 from "../assets/Destination3.png";
-import Destination4 from "../assets/Destination4.png";
-import Destination5 from "../assets/Destination5.png";
+import Destination4 from "../assets/1f04210b_9a1e_4567_8853_a6f31d041bb4.jpeg";
+import Destination5 from "../assets/tours.jpg";
 import Destination6 from "../assets/Destination6.png";
 import ProductPage from "./ProductPage";
 import Loader from "./Loader";
@@ -33,6 +33,17 @@ export default function Recommend() {
       duration: "Approx 2-night trip",
       link: "/product2/",
     },
+    
+    {
+      image: Destination5,
+      title_ru: "Бизнес Тур",
+      subTitle_ru: "Тур По Городам Узбекистана по желанию и выбору туриста",
+      title_en: "Bussines Tour of Uzbekistan",
+      subTitle_en: "8 Days 7 Nights Tour to Tashkent-Samarkand-Bukhara",
+      cost: "45,500",
+      duration: "Approx 2-night trip",
+      link: "/product3/",
+    },
     {
       image: Destination4,
       title_ru: "Индивидуальный Тур по Узбекистану",
@@ -43,16 +54,6 @@ export default function Recommend() {
       cost: "45,500",
       duration: "Approx 2-night trip",
       link: "/product4/",
-    },
-    {
-      image: Destination5,
-      title_ru: "Бизнес Тур",
-      subTitle_ru: "Тур По Городам Узбекистана по желанию и выбору туриста",
-      title_en: "Bussines Tour of Uzbekistan",
-      subTitle_en: "8 Days 7 Nights Tour to Tashkent-Samarkand-Bukhara",
-      cost: "45,500",
-      duration: "Approx 2-night trip",
-      link: "/product3/",
     },
   ];
 

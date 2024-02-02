@@ -9,7 +9,7 @@ import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import { useLanguage } from "./LanguageContext";
 
-const API_URL = "https://theeastcaravan.com/back/api/step/";
+const API_URL = "https://back.theeastcaravan.com/api/step/";
 
 export default function VerticalLinearStepper() {
   const [steps, setSteps] = useState([]);

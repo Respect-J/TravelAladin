@@ -8,6 +8,9 @@ import ContactBubble from "./ContactBubble";
 import Testimonials4 from "./Testimonials4";
 import Gallery from "./Gallery";
 import { useLanguage } from "./LanguageContext";
+import Accordion1 from "./Accordion1";
+import ImageCarousel from "./ImageCarousel";
+import Testimonials from "./Testimonials";
 
 const ProductPage = () => {
   const { translations, language } = useLanguage();
@@ -22,7 +25,7 @@ const ProductPage = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "https://theeastcaravan.com/back/tours/api/tour/0/"
+          "https://back.theeastcaravan.com/tours/api/tour/0/"
         );
         const data = response.data;
 
@@ -66,7 +69,7 @@ const ProductPage = () => {
               <img
                 data-image="red"
                 className="active"
-                src={`https://theeastcaravan.com${tourData.mainimg}`}
+                src={`https://back.theeastcaravan.com${tourData.mainimg}`}
                 alt={tourData.title}
               />
               <br />
@@ -78,9 +81,9 @@ const ProductPage = () => {
                   <li key={id}>{description}</li>
                 ))}
               </ul>
-              <div className="galleryall">
-                <Gallery className="galleryall" />
-              </div>
+                
+             
+             
             </div>
 
             <div className="right-column">
@@ -100,28 +103,22 @@ const ProductPage = () => {
                 <div>
                   <h2>{translations && translations.dayDescription}</h2>
                   <div className="accordion">
-                    {accordionData.map(
-                      ({ id, description_ru, description_en }) => (
-                        <Accordion
-                          key={id}
-                          title={`${id} ${language === "ru" ? `День` : `Day`}`}
-                          content={
-                            language === "ru" ? description_ru : description_en
-                          }
-                        />
-                      )
-                    )}
+                    <Accordion1/>
                   </div>
                 </div>
               </div>
+              <span className="product-price" style={{fontSize: '20px', fontWeight: 'bold'}}>
+              {language === "ru" ? "При группе 15 человек" : "For a group of 15 people"}
+
+              </span>
 
               <div className="product-price">
                 <span>
                   {price !== null
                     ? `${
                         language === "ru"
-                          ? `Цена за одного`
-                          : `Price for one person`
+                          ? `Одноместное размещение`
+                          : `Single occupancy`
                       }: ${tourData.price_for_one}$`
                     : translations && translations.loading}
                 </span>
@@ -131,8 +128,8 @@ const ProductPage = () => {
                   {price !== null
                     ? `${
                         language === "ru"
-                          ? `Цена за двоих`
-                          : `Price for two persons`
+                          ? `Двухместное размещение`
+                          : `Double occupancy`
                       }: ${tourData.price_for_two}$`
                     : translations && translations.loading}
                 </span>
@@ -145,7 +142,11 @@ const ProductPage = () => {
           </>
         )}
       </main>
-      <Testimonials4 />
+      <ImageCarousel/>
+      <Testimonials />
+      {/* <div className="galleryall2">
+        <Gallery className="galleryall" />
+      </div> */}
       <Footer />
     </>
   );

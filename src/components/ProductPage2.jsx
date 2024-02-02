@@ -6,8 +6,11 @@ import axios from "axios";
 import ScrollToTop from "./ScrollToTop";
 import ContactBubble from "./ContactBubble";
 import Testimonials3 from "./Testimonials3";
-import Gallery from "./Gallery";
 import { useLanguage } from "./LanguageContext";
+import Gallery2 from "./Gallery2";
+import Accordion2 from "./Accordion2";
+import ImageCarousel from "./ImageCarousel";
+import Testimonials from "./Testimonials";
 
 const ProductPage = () => {
   const { translations, language } = useLanguage();
@@ -22,7 +25,7 @@ const ProductPage = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "https://theeastcaravan.com/back/tours/api/tour/1/"
+          "https://back.theeastcaravan.com/tours/api/tour/1/"
         );
         const data = response.data;
 
@@ -43,6 +46,7 @@ const ProductPage = () => {
 
     fetchData();
   }, []);
+
 
   const handleExpansion = () => {
     setExpanded((prevExpanded) => !prevExpanded);
@@ -66,7 +70,7 @@ const ProductPage = () => {
               <img
                 data-image="red"
                 className="active"
-                src={`https://theeastcaravan.com${tourData.mainimg}`}
+                src={`https://back.theeastcaravan.com${tourData.mainimg}`}
                 alt={tourData.title}
               />
               <br />
@@ -74,12 +78,13 @@ const ProductPage = () => {
                 {translations && translations.included}
               </p>
               <ul className="inclusions-list">
-                {comesOutData.map(({ id, description }) => (
-                  <li key={id}>{description}</li>
+              {comesOutData.map(({ id, description_ru, description_en }) => (
+                  <li key={id}>
+                    {language === "ru" ? description_ru : description_en}
+                  </li>
                 ))}
               </ul>
               <div className="galleryall">
-                <Gallery className="galleryall" />
               </div>
             </div>
 
@@ -100,30 +105,21 @@ const ProductPage = () => {
                 <div>
                   <h2>{translations && translations.dayDescription}</h2>
                   <div className="accordion">
-                    {accordionData.map((item, index) => (
-                      <Accordion
-                        key={index}
-                        title={`${index + 1} ${
-                          language === "ru" ? `День` : `Day`
-                        }`}
-                        content={
-                          language === "ru"
-                            ? item.description_ru
-                            : item.description_en
-                        }
-                      />
-                    ))}
+                    <Accordion2/>
                   </div>
                 </div>
               </div>
+              <span className="product-price" style={{fontSize: '20px', fontWeight: 'bold'}}>
+              {language === "ru" ? "При группе 15 человек" : "For a group of 15 people"}
 
+              </span>
               <div className="product-price">
                 <span>
                   {price !== null
                     ? `${
                         language === "ru"
-                          ? `Цена за одного`
-                          : `Price for one person`
+                          ? `Одноместное размещение`
+                          : `Single occupancy`
                       }: ${tourData.price_for_one}$`
                     : translations && translations.loading}
                 </span>
@@ -133,8 +129,8 @@ const ProductPage = () => {
                   {price !== null
                     ? `${
                         language === "ru"
-                          ? `Цена за двоих`
-                          : `Price for two persons`
+                          ? `Двухместное размещение`
+                          : `Double occupancy`
                       }: ${tourData.price_for_two}$`
                     : translations && translations.loading}
                 </span>
@@ -147,7 +143,12 @@ const ProductPage = () => {
           </>
         )}
       </main>
-      <Testimonials3 />
+      <ImageCarousel/>
+
+      <Testimonials />
+      {/* <div className="galleryall2">
+        <Gallery2 className="galleryall" />
+      </div> */}
       <Footer />
     </>
   );

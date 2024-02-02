@@ -16,7 +16,7 @@ export default function Navbar() {
       <Nav className="nav">
         <div className="brand">
           <a href="/">
-            <div className="container2">
+            <div className="container2" style={{ fontSize: "20px" /* Add other styles as needed */ }}>
               <img src={logo} alt="" />
               {language === "ru" ? "The East Caravan" : "The East Caravan"}
             </div>
@@ -25,7 +25,10 @@ export default function Navbar() {
             {navbarState ? (
               <VscChromeClose onClick={() => setNavbarState(false)} />
             ) : (
-              <GiHamburgerMenu onClick={() => setNavbarState(true)} />
+              <GiHamburgerMenu
+                onClick={() => setNavbarState(true)}
+                style={{ fontSize: "29px" /* Add other styles as needed */ }}
+              />
             )}
           </div>
         </div>
@@ -35,16 +38,24 @@ export default function Navbar() {
             <a href="/">{language === "ru" ? "Главная" : "Home"}</a>
           </li>
           <li>
-            <a href="https://theeastcaravan.com/#services">{language === "ru" ? "Города" : "Cities"}</a>
+            <a href="https://theeastcaravan.com/#services">
+              {language === "ru" ? "Города" : "Cities"}
+            </a>
           </li>
           <li>
-            <a href="https://theeastcaravan.com/#recommend">{language === "ru" ? "Программы туров" : "Tour Programs"}</a>
+            <a href="https://theeastcaravan.com/#individ">
+              {language === "ru" ? "Программы туров" : "Tour Programs"}
+            </a>
           </li>
           <li>
-            <a href="https://theeastcaravan.com/#contact">{language === "ru" ? "Обратная связь" : "Contact"}</a>
+            <a href="https://theeastcaravan.com/#contact">
+              {language === "ru" ? "Обратная связь" : "Contact"}
+            </a>
           </li>
           <li>
-            <a href="https://theeastcaravan.com/#testimonials">{language === "ru" ? "Отзывы" : "Testimonials"}</a>
+            <a href="https://theeastcaravan.com/#testimonials">
+              {language === "ru" ? "Отзывы" : "Testimonials"}
+            </a>
           </li>
           <li>
             <a href="/about">{language === "ru" ? "О нас" : "About Us"}</a>
@@ -54,7 +65,11 @@ export default function Navbar() {
           <LanguageDropdown />
         </span>
       </Nav>
-      <ResponsiveNav state={navbarState}>
+      <ResponsiveNav
+        className="custom-responsive-nav"
+        state={navbarState}
+        style={{ width: "300px" /* Add other styles as needed */ }}
+      >
         <ul>
           <li>
             <a href="/" onClick={() => setNavbarState(false)}>
@@ -71,7 +86,7 @@ export default function Navbar() {
           </li>
           <li>
             <a
-              href="https://theeastcaravan.com/#recommend"
+              href="https://theeastcaravan.com/#individ"
               onClick={() => setNavbarState(false)}
             >
               {language === "ru" ? "Программы туров" : "Tour Programs"}
@@ -106,7 +121,6 @@ export default function Navbar() {
     </>
   );
 }
-
 
 const Nav = styled.nav`
   display: flex;
@@ -163,7 +177,6 @@ const Nav = styled.nav`
     }
   }
   button {
-    
     cursor: pointer;
     border-radius: 1rem;
     border: none;
@@ -184,7 +197,7 @@ const Nav = styled.nav`
       align-items: center;
       width: 100%;
       margin-right: 2rem;
-      
+
       .toggle {
         display: block;
       }
@@ -202,10 +215,10 @@ const ResponsiveNav = styled.div`
   display: flex;
   position: absolute;
   z-index: 10000000;
-  top: ${({ state }) => (state ? "50px" : "-400px")};
+  top: ${({ state }) => (state ? "50px" : "-420px")};
   background-color: white;
   height: 60vh;
-  width: 100%;
+  width: 92%;
   align-items: center;
   transition: 0.3s ease-in-out;
 

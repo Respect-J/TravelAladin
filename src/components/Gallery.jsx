@@ -1,21 +1,24 @@
-import React, { useState } from 'react';
-import IMG from '../assets/Destination1.png'
-import IMG2 from '../assets/Destination2.png'
-import IMG3 from '../assets/Destination3.png'
-import IMG4 from '../assets/Destination4.png'
-import IMG5 from '../assets/Destination5.png'
+import React, { useState, useEffect } from 'react';
+import { useLanguage } from './LanguageContext';
 
-const images = [
-  { src: IMG, alt: 'Image 1' },
-  { src: IMG2, alt: 'Image 2' },
-  { src: IMG3, alt: 'Image 3' },
-  { src: IMG4, alt: 'Image 4' },
-  { src: IMG5, alt: 'Image 5' },
-  { src: IMG5, alt: 'Image 5' },
-];
-
-function Gallery() {
+const Gallery = () => {
+  const [images, setImages] = useState([]);
   const [fullscreenImage, setFullscreenImage] = useState(null);
+
+  useEffect(() => {
+    // Fetch data from the API
+    const fetchData = async () => {
+      try {
+        const response = await fetch('https://back.theeastcaravan.com/tours/pics/0/');
+        const data = await response.json();
+        setImages(data.pics_info);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   const openFullscreen = (index) => {
     setFullscreenImage(images[index]);
@@ -25,14 +28,18 @@ function Gallery() {
     setFullscreenImage(null);
   };
 
+  const { language } = useLanguage();
   return (
+    <>
+      <h2 className="titlestop">{language === "ru" ? "Фото отчёт" : "Photo report"}</h2>
     <div className="gallery">
       {images.map((image, index) => (
         <img
           key={index}
           className="gallery__item"
-          src={image.src}
-          alt={image.alt}
+          src={`https://back.theeastcaravan.com${image.mainimg}`}
+          alt={`Image ${index + 1}`}
+          loading="lazy" // Add lazy loading attribute
           onClick={() => openFullscreen(index)}
         />
       ))}
@@ -40,14 +47,14 @@ function Gallery() {
       {fullscreenImage && (
         <div className="fullscreen-overlay" onClick={closeFullscreen}>
           <div className="fullscreen-content">
-            <img src={fullscreenImage.src} alt={fullscreenImage.alt} />
+            <img src={`https://back.theeastcaravan.com${fullscreenImage.mainimg}`} alt={`Fullscreen ${fullscreenImage.id}`} />
             <button onClick={closeFullscreen}>x</button>
           </div>
         </div>
       )}
     </div>
+  </>
   );
-}
+};
 
 export default Gallery;
-

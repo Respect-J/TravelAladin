@@ -18,7 +18,7 @@ export default function Footer() {
   return (
     <FooterContainer>
       <span>
-        {language === "ru" ? "Carpet Travel Aladin. Все права защищены" : "Carpet Travel Aladin. All rights reserved"}
+        {language === "ru" ? "The East Caravan. Все права защищены" : "The East Caravan. All rights reserved"}
       </span>
       <ul className="links">
         <li>

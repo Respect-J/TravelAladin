@@ -13,7 +13,7 @@ export default function Services() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`https://theeastcaravan.com/back/api/countre/?lang=${language}`);
+        const response = await fetch(`https://back.theeastcaravan.com/api/countre/?lang=${language}`);
         const jsonData = await response.json();
         setData(jsonData);
       } catch (error) {

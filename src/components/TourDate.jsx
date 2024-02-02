@@ -8,7 +8,7 @@ const TourDate = () => {
   useEffect(() => {
     const fetchTourDates = async () => {
       try {
-        const response = await fetch("https://theeastcaravan.com/back/tours/date/");
+        const response = await fetch("https://back.theeastcaravan.com/tours/date/");
         const data = await response.json();
 
         // Выбираем правильные поля для соответствующего языка
